@@ -1,0 +1,95 @@
+// Cover some element-ui styles
+
+.el-table td, .el-table th {
+  padding: 0;
+}
+
+.el-input-group__append {
+  color: #FFFFFF;
+  background-color: $--color-primary;
+  border-color: $--color-primary;
+
+  &:hover {
+    background: $--color-primary-hover;
+    border-color: $--color-primary-hover;
+  }
+}
+
+.el-range-editor--small .el-range-separator,
+.el-range-editor--mini .el-range-separator {
+  width: 30px;
+}
+
+.el-pagination {
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 适配 IE */
+.el-table__header, .el-table__body {
+  width: 100% !important;
+}
+
+// 表格统一样式类名
+.el-table {
+  border: 1px solid gray !important;
+
+  thead.is-group th,
+  .el-table__header thead > tr > th {
+    text-align: center;
+  }
+
+  .el-table--border td,
+  .el-table--border th,
+  .el-table__body-wrapper .el-table--border.is-scrolling-left ~ .el-table__fixed {
+    border-right: 1px solid gray;
+  }
+
+  td,
+  th.is-leaf {
+    border-bottom: 1px solid gray;
+  }
+
+  .el-table__body tr td,
+  .el-table__header thead > tr > th {
+    border-right: 1px solid gray !important;
+    border-bottom: 1px solid gray !important;
+  }
+
+  .el-table__body tr td:last-of-type,
+  .el-table__header thead > tr > th:last-of-type,
+  .el-table__header thead > tr > th:nth-last-of-type(2) {
+    border-right: none !important;
+  }
+
+  .el-table__header-wrapper .el-table__header .add_right_border {
+    border-right: 1px solid gray !important;
+  }
+
+  td,
+  th {
+    text-align: center;
+  }
+}
+
+// 表单项统一深色框线设置
+.el-input__inner,
+.el-input__inner:hover,
+.el-textarea__inner,
+.el-input-group__prepend {
+  border-color: gray !important;
+}
+
+.el-input__inner:focus {
+  border-color: $--color-primary !important;
+}
+
+.el-input-group__append button.el-button,
+.el-input-group__append div.el-select .el-input__inner,
+.el-input-group__append div.el-select:hover .el-input__inner,
+.el-input-group__prepend button.el-button,
+.el-input-group__prepend div.el-select .el-input__inner,
+.el-input-group__prepend div.el-select:hover .el-input__inner {
+  border-color: transparent !important;
+}

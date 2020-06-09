@@ -1,0 +1,28 @@
+/* theme color */
+$--color-primary: #2264A0;
+$--color-success: #13CE66;
+$--color-warning: #FFBA00;
+$--color-danger: #FF4949;
+// $--color-info: #1E1E1E;
+
+$--color-primary-hover: #4E83B3;
+$--color-plain-hover: #E9F0F6;
+
+$--button-font-weight: 400;
+
+// $--color-text-regular: #1F2D3D;
+
+$--border-color: #CCC;
+$--border-color-light: #DFE4ED;
+$--border-color-lighter: #E6EBF5;
+
+$--table-border: 1px solid #DFE6EC;
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  theme: $--color-primary;
+}
