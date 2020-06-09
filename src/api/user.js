@@ -8,6 +8,7 @@ export function login(ticket) {
     null,
     {
       headers: {'Authorization': ticket}
+      
     }
   )
 }
