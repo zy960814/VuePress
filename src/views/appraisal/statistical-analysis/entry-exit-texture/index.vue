@@ -1,7 +1,7 @@
 <template>
   <div id="printDOMElement" class="content">
     <el-card shadow="never">
-      <div slot="header" class="hxl__title">进出境文物质地情况统计</div>
+      <div slot="header" class="hxl__title">进出境文物质地情况</div>
       <entry-exit-texture/>
     </el-card>
   </div>

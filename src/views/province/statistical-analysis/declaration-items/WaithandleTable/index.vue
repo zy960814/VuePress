@@ -43,15 +43,12 @@
           </el-option>
       </el-select>
     </table-opt-menu>
-    <div style="text-align: center; line-height: 28px; margin: -33px 0 5px 0">
-      <span class="hxl__subtitle" style="font-size: 14px">（{{ this.datePickerVal ? this.datePickerVal[0].format('yyyy年M月d日') + '-' + this.datePickerVal[1].format('yyyy年M月d日') : '全部统计数据' }}）</span>
-    </div>
     <el-table :data="tableData" border stripe :height="tableHeight">
       <el-table-column
           prop="applicant_name"
           align="center"
           label="全国重点文物保护单位名称"
-          width="180">
+          min-width="180">
       </el-table-column>
       <el-table-column
           align="center"
@@ -59,103 +56,52 @@
         <el-table-column
           prop="lsjj_zhanlan"
           align="center"
-          label="全国重点文物保护单位源地保护措施审批">
+          label="全国重点文物保护单位修缮项目审批">
           <el-table-column
             prop="apply56004"
             align="center"
+            min-width="110"
             label="申请数">
           </el-table-column>
           <el-table-column
             prop="end56004"
             align="center"
+            min-width="110"
             label="办结数">
           </el-table-column>
         </el-table-column>
         <el-table-column
           prop="lsjj_zhanlan"
           align="center"
-          width="220"
-          label="省级和全国重点文物保护保护单位保护范围内其他建设工程或爆破、钻探、挖掘等作业审批">
+          label="全国重点文物保护单位安全防护工程项目审批">
           <el-table-column
             prop="apply56005"
             align="center"
-            width="110"
+            min-width="110"
             label="申请数">
           </el-table-column>
           <el-table-column
             prop="end56005"
             align="center"
-            width="110"
+            min-width="110"
             label="办结数">
           </el-table-column>
         </el-table-column>
         <el-table-column
           prop="lsjj_zhanlan"
           align="center"
-          width="220"
-          label="全国重点文物保护单位单位建设控制地带内建设工程设计方案审批">
+          min-width="220"
+          label="全国重点文物保护单位保护规划审批">
           <el-table-column
             prop="apply56008"
             align="center"
-            width="110"
+            min-width="110"
             label="申请数">
           </el-table-column>
           <el-table-column
             prop="end56008"
             align="center"
-            width="110"
-            label="办结数">
-          </el-table-column>
-        </el-table-column>
-        <el-table-column
-            prop="lsjj_zhanlan"
-            align="center"
-            label="全国重点文物保护单位修缮审批">
-            <el-table-column
-              prop="apply56012"
-              align="center"
-              label="申请数">
-            </el-table-column>
-            <el-table-column
-              prop="end56012"
-              align="center"
-              label="办结数">
-            </el-table-column>
-        </el-table-column>
-        <el-table-column
-            prop="lsjj_zhanlan"
-            align="center"
-            label="全国重点文物保护单位保护规划审批">
-            <el-table-column
-              prop="apply56014"
-              align="center"
-              label="申请数">
-            </el-table-column>
-            <el-table-column
-              prop="end56014"
-              align="center"
-              label="办结数">
-            </el-table-column>
-        </el-table-column>
-      </el-table-column>
-      <el-table-column
-        prop="lsjj_zhanlan"
-        align="center"
-        label="考古挖掘">
-        <el-table-column
-          prop="lsjj_zhanlan"
-          align="center"
-          label="考古挖掘计划许可(重大事项)">
-          <el-table-column
-            prop="apply56022"
-            align="center"
-            width="110"
-            label="申请数">
-          </el-table-column>
-          <el-table-column
-            prop="end56022"
-            align="center"
-            width="110"
+            min-width="110"
             label="办结数">
           </el-table-column>
         </el-table-column>

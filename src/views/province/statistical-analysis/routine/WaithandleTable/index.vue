@@ -30,15 +30,11 @@
           </el-option>
       </el-select>
     </table-opt-menu>
-    <div style="text-align: center; line-height: 28px; margin: -33px 0 5px 0">
-      <span class="hxl__subtitle" style="font-size: 14px">（{{ this.datePickerVal ? this.datePickerVal[0].format('yyyy年M月d日') + '-' + this.datePickerVal[1].format('yyyy年M月d日') : '全部统计数据' }}）</span>
-    </div>
     <el-table :data="tableData" border stripe :height="tableHeight">
       <el-table-column
-          fixed="left"
           prop="belongCode"
           align="center"
-          label="编码"
+          label="事项编码"
           width="80">
       </el-table-column>
       <el-table-column

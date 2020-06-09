@@ -1,7 +1,7 @@
 <template>
   <div id="printDOMElement" class="content">
     <el-card shadow="never">
-      <div slot="header" class="hxl__title">临时进境许可失效情况统计报表</div>
+      <div slot="header" class="hxl__title">文物临时进境许可失效情况</div>
       <entry-permission-invalid/>
     </el-card>
   </div>

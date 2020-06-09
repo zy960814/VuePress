@@ -1,6 +1,8 @@
 <template>
   <div class="waitHandle">
-    <collapse-form @search-fun="searchFun" @reset-form="resetForm" :collapse-enabled="false">
+    <div class="headerTable"></div>
+    <collapse-form @search-fun="searchFun" @reset-form="resetForm" :collapse-enabled="false"
+    >
       <div slot="header" class="fl">
         <div class="row_1">
           <el-input
@@ -565,7 +567,7 @@ export default {
       dialogKey: 0,
       searchHeight: 55,
       headerDialogVisible: { flag: false },
-      fixButtonArr: ['查看','流程跟踪','许可决定'], //固定列的按钮
+      fixButtonArr: ['查看','流程跟踪','批复文件'], //固定列的按钮
       totalCount: 0,
       currentPageNumber: '',
       queryParams: {
@@ -876,6 +878,10 @@ export default {
 <style lang="scss" scoped>
 /deep/ .el-table th > .cell {
   text-align: center;
+}
+.headerTable {
+  margin: 10px -20px;
+  border-top: 1px solid #e6ebf5;
 }
 /deep/ .el-table .cell {
   text-align: center;

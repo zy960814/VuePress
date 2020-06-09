@@ -11,6 +11,14 @@ const provinceRouter = {
       component: () =>
         import('@/views/province/opinions-provincial')
     }, {
+      path: '/province/plan-apply',
+      component: () =>
+        import('@/views/province/plan-apply'),
+      meta: {
+        keepAlive: true // 需要缓存
+      }
+    },
+    {
       path: '/province/admin-apply',
       component: () =>
         import('@/views/province/admin-apply'),
@@ -163,19 +171,19 @@ const provinceRouter = {
         import('@/views/province/statistical-analysis/cr-noumenon')
     },
     // 统计分析 - 日常工作情况统计  
-    {  
+    {
       path: '/province/statistical-analysis/routine',
       component: () =>
         import('@/views/province/statistical-analysis/routine')
     },
     // 统计分析 - 审批咨询情况统计 
-    {  
+    {
       path: '/province/statistical-analysis/approval-consultation',
       component: () =>
         import('@/views/province/statistical-analysis/approval-consultation')
     },
     //  统计分析 - 申报事项情况统计
-    {  
+    {
       path: '/province/statistical-analysis/declaration-items',
       component: () =>
         import('@/views/province/statistical-analysis/declaration-items')

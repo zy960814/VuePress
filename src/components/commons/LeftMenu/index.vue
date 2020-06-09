@@ -1030,8 +1030,8 @@
 
     .menu_switch {
       color: #303133;
-      height: 50px;
-      line-height: 50px;
+      height: 40px;
+      line-height: 40px;
       padding: 0 20px;
       border-bottom: 2px #F2F2F2 solid;
       cursor: pointer;

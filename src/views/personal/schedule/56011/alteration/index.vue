@@ -30,24 +30,31 @@
               <application-material :status='status' :allData="allData" ref='applicationMaterial'></application-material>
             </apply-form-item>
             <apply-form-item data="申请单位从业信息" class="hxl_item">
-              <bump-qualification :status='status' :addProject='addProject'></bump-qualification>
+              <bump-qualification :status='status' :addProject='addProject' :allData='allData'></bump-qualification>
             </apply-form-item>
           </div>
         </template>
       </apply-form>
     </el-card>
-    <my-dialog width="500px" class="boxCard_dialog" :height='dialogHeight + "px"' center :visible.sync="dialogFormVisibleType"  :append-to-body="false">
+    <!-- 提交弹框 -->
+    <my-dialog
+      width="1024px"
+      class="boxCard_dialog"
+      :height="dialogHeight+'px'"
+      :visible.sync="dialogVisible">
       <el-card shadow="never">
-        <div slot="header">承诺公告</div>
-        <el-scrollbar :style="{height: (dialogHeight - 140) + 'px'}">
-          <div class="explain">资质单位及经办人应保证提交至该平台中的信息及文件的真实性、有效性、合法性、准确性和完整性。如资质单位或经办人伪造相关信息、文件，或相关信息、文件存在误导性陈述或重大遗漏，录入信息及依据其作出的行政决定将被退回或作废；违反相关法规的，将按照相关法规要求进行处罚，并将作为负面信用信息予以记录。</div>
+        <div slot="header">全国重点文物保护单位原址保护措施申请</div>
+        <el-scrollbar :style="{height: dialogHeight-138+'px'}">
+          <!-- <div style="margin-bottom:10px;"> -->
+          <confirm-message :key="Math.random()" :applyFormData="applyFormData" :allData='allData' />
+          <!-- </div> -->
         </el-scrollbar>
       </el-card>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="confirm">同意</el-button>
-        <el-button @click="dialogFormVisibleType = false">不同意</el-button>
+        <el-button type="primary" @click="confirm">确定</el-button>
+        <el-button @click="dialogVisible=false">取消</el-button>
       </span>
-		</my-dialog>
+    </my-dialog>
   </div>
 </template>
 
@@ -59,6 +66,7 @@ import ChangeInformation from './ChangeInformation'
 import ApplyFormItem from '@/components/commons/ApplyForm/ApplyFormItem'
 import ApplyForm from '@/components/commons/ApplyForm'
 import MyDialog from '@/components/commons/MyDialog'
+import ConfirmMessage from '@/components/business/ConfirmMessage56011-b'
 export default {
   components: {
     ChangeInformation,
@@ -67,21 +75,22 @@ export default {
     BumpQualification,
     ApplyForm,
     ApplyFormItem,
+    ConfirmMessage,
     // Technicist,
     MyDialog
   },
   props: {},
   data() {
     return {
-      dialogFormVisibleType:false,
+      dialogVisible:false,
       // 切换按钮标题
-      titleData: ['基本信息', '变更信息', '申报信息', '申请材料','申请单位从业信息'],
+      titleData: ['基本信息', '变更信息', '申请材料','申请单位从业信息'],
       applyFormData: {},
       status: 2,
       disabled:true,
       Project:[],
-       allData:{
-        AgencyInformation:{ // 单位机构信息 数据
+      allData:{
+        AgencyInformation:{ // 单位基本信息 数据
           form: {
             address: "",
             areaCode: "",
@@ -113,7 +122,7 @@ export default {
             isIllegal: '',
           }
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[],
         },
         ProvincialBureau:{//省文物局意见
@@ -144,17 +153,19 @@ export default {
       )
     },
     dialogHeight() {
-      return this.$store.getters.screenHeight > 220
-        ? 220
+      return this.$store.getters.screenHeight > 600
+        ? 600
         : this.$store.getters.screenHeight
     }
   },
   watch: {},
-  created() {},
+  created() {
+    this.getAllData()
+  },
   mounted() {},
   destroyed() {},
   methods: {
-    // 单位机构信息标记状态改变: 1已核, 2存疑
+    // 单位基本信息标记状态改变: 1已核, 2存疑
     organStatusChange(value) {
       console.log(value,'value')
     },
@@ -166,7 +177,6 @@ export default {
     },
     // 选择按钮弹框确认
     confirm() {
-      this.dialogFormVisibleType = false;
        let value=this.saveOrsubmit
        let flag=this.$refs.essentialInformation.validataForm();
        let flag1=this.$refs.changeInformation.validataForm();
@@ -178,7 +188,34 @@ export default {
       if(value==='save'){
         // window.alert('调用保存接口  刷新页面状态');
       }
-      if(value==='submit'){
+      if(value==='submit' && flag && flag1 && flag2){
+        this.dialogVisible = true;//显示提交弹框
+        this.applyFormData={
+          basicInformationTitle:{
+              instName: '申请事项名称',
+              creditCode: '申请文件标题',
+              applyDocumentNum_part1: '申请文号',
+              technologyDocument: '申请文件',
+              economicType: '申请人',
+              projectLevel: '经办人',
+              linkPhone: '联系方式',
+            ...this.$refs.essentialInformation.form,
+          },
+          basicMessageTitle:{
+            instName: '单位名称' ,
+            creditCode: '单位地址',
+            economicType: '法定代表人' ,
+            money: '注册资金(万元)',
+            linkPhone: '经济性质',
+            break: '备注',
+            ...this.$refs.changeInformation.form,
+          },
+          applyMaterialTitle: {
+            technologyDocument: '资质申请表签字盖章扫描件',
+            technologyDocument0: '法定代表人任职文件加盖公章彩色扫描件',
+            ...this.$refs.applicationMaterial.form,
+          },
+        }
         // window.alert('调用提交接口  刷新页面状态');
       }
     },
@@ -196,6 +233,196 @@ export default {
     // 添加项目
     addProject(Project){
       this.Project=Project;
+    },
+    // 获取从业维护信息的数据
+    getAllData(){
+       this.allData={
+        AgencyInformation:{ // 单位基本信息 数据
+         form:{
+            instName:'1111',
+            creditCode:'111111',
+            redStar:'111111111',
+            address:'1111',
+            economicType:'1111',
+            regMoney:'1111',
+            mngInst:'111',
+            linkPhone:'1111',
+            email:'111',
+            corpName:'1111',
+            corpIdCard:'11111',
+            itemName1:'111',
+            corpIdCard1:'1111',
+            itemName2:'1111'
+         }
+        },
+        HistoricReservation:{//文物保护工程业绩
+          tableData:[
+            {
+              approvalDepart: "国家文物局",
+              approvalNo: "文物保函【2015】1号",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "1",
+              finishTime: "",
+              id: "8a8086a170f610870171e97c30280313",
+              isDesign: null,
+              itemCode: "1",
+              itemType: null,
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              projectCategory: null,
+              projectLevel: null,
+              projectName: "颐和园围墙修缮工程",
+              protectDepart: "颐和园",
+              protectionDepartLevel: "1",
+              startTime: ""
+            },
+            {
+              approvalDepart: "国家文物局",
+              approvalNo: "文物保函【2015】1号",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "0",
+              finishTime: "",
+              id: "8a8086a170f610870171e97c30280313",
+              isDesign: null,
+              itemCode: "1",
+              itemType: null,
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              projectCategory: null,
+              projectLevel: null,
+              projectName: "颐和园围墙修缮工程",
+              protectDepart: "颐和园",
+              protectionDepartLevel: "1",
+              startTime: ""
+            }
+          ],
+          remark:'',
+        },
+        ProvincialBureau:{//省文物局意见
+          form: {
+            opinionContent:'1',
+            isIllegal:'2',
+            economicType:'3',
+            technologyDocument:'4',
+            economicPeople:'5',
+            economicPeoplePhone:'6',
+            technologyDocument1:'7'
+          },
+        },
+        QualificationInformation:{//单位资质信息
+            tableData: [
+              {
+                approvalDepartment: "国家文物局",
+                approvalSymbol: "文物保函【2015】1号",
+                checkStatus: null,
+                docType: {},
+                finishFlag: "1",
+                levelCode: "1",
+                organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+                quaEndTime: "2020-05-29",
+                quaStartTime: "2020-05-03",
+                qualificationInfoId: "8a8086a170f610870171e97c303b0314",
+                qualificationLevel: "勘察设计甲级",
+                qualRangeName:'111' 
+              },
+              {
+                approvalDepartment: "国家文物局",
+                approvalSymbol: "文物保函【2015】1号",
+                checkStatus: null,
+                docType: {},
+                finishFlag: "0",
+                levelCode: "4",
+                organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+                quaEndTime: "2020-05-21",
+                quaStartTime: "2020-05-04",
+                qualificationInfoId: "8a8086a170f610870171e97c30400318",
+                qualificationLevel: "勘察设计乙级",
+                qualRangeName:'111'
+              }
+            ],
+            remark:'',
+        },
+        ScholarshipPrize:{//获奖情况
+          tableData: [
+            {
+              awardsInfo: null,
+              awardsName: "优秀奖",
+              awardsYear: "2020",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "1",
+              id: "8a8086a170f610870171e97c30210310",
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              ratingDepart: "中国古迹遗址保护协会",
+              editFlag:false,
+            },
+            {
+              awardsInfo: null,
+              awardsName: "优秀奖",
+              awardsYear: "2020",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "0",
+              id: "8a8086a170f610870171e97c30210310",
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              ratingDepart: "中国古迹遗址保护协会",
+              editFlag:true,
+            },
+          ],
+          remark:'',
+        },
+        Technicist:{//单位技术人员构成
+          tableData: [
+            {
+              business: "责任设计师:文物保护规划,古建筑",
+              certificateNo: "ZRSJ20150053;",
+              checkStatus: null,
+              dateBirth: null,
+              docType: {},
+              finishFlag: "1",
+              id: "8a8086a170f610870171e97c30240311",
+              instName: "北京诗琴园林设计有限公司（测试11）",
+              name: "毕毅",
+              newInstId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              otherFlag: null,
+              perRangeCode: "责任设计师:1,责任设计师:2",
+              perTypeCode: "1",
+              qualificationType: "责任设计师",
+              rehireAfterRetirement: "0",
+              userId: "71DC4522-13B9-4D6D-9C26-56496FE4357E"
+            },
+            {
+              business: "考古",
+              certificateNo: "设计师",
+              checkStatus: null,
+              dateBirth: "2020",
+              docType: {},
+              finishFlag: "0",
+              id: "8a8086a170f610870171e97c30250312",
+              instName: "北京诗琴园林设计有限公司（测试11）",
+              name: "李丽",
+              newInstId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              otherFlag: null,
+              perRangeCode: null,
+              perTypeCode: null,
+              qualificationType: "其他技术骨干",
+              rehireAfterRetirement: null,
+              userId: null
+            }
+          ],
+          remark:'',
+        },
+        ChinaAssociation:{ 
+         form:{
+            opinionContent:"111",
+            isIllegal:'1111',
+            technologyDocument:[],
+            remark:''
+         }
+        }
+      }
     },
     // 根据状态隐藏对应的东西
     // SwStatus(){

@@ -431,7 +431,7 @@
                     :action="fileUploadUrl"
                     :on-preview="handlePreview"
                     :before-remove="beforeRemove"
-                    :data="{fieldCode: 'BAWJ', fieldName: '技术文件'}"
+                    :data="{fieldCode: 'BAWJ', fieldName: '申报主体'}"
                     :file-list="form.technologyDocument"
                     :multiple="false"
                     :limit="1"
@@ -441,7 +441,7 @@
                   >
                     <el-button size="small" type="primary">上传授权书扫描</el-button>
                     <el-button size="small" type="primary">模板下载</el-button>
-                    <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
+                    <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
                   </el-upload>
                 </el-form-item>
               </el-col>

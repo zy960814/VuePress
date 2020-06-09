@@ -104,7 +104,7 @@ export default {
         { fundsSource: '经费来源' },
         { funds: '经费金额', '': '' },
         { bzdw: '编制单位', '': '' },
-        { bsdw: '报送单位', '': '' },
+        { bsdw: '申报主体', '': '' },
         { otherIntroduction: '其他说明' }
       ],
       // 立项批复文件

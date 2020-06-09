@@ -54,7 +54,7 @@
       </div>
     </el-row>
     <my-dialog width="1000px" class="boxCard_dialog" :height='dialogHeight + "px"' :visible.sync="dialogFormVisibleType"  :append-to-body="false">
-      <select-dialog :pageTabsData="pageTabsData1" title="添加独立承担且已完成的文物保护工程业绩" @handle-select="handleSelect" :height='dialogHeight + "px"' ref='selectDialog'>
+      <select-dialog :pageTabsData="pageTabsData1" title="添加文物保护工程业绩" @handle-select="handleSelect" :height='dialogHeight + "px"' ref='selectDialog'>
         <template #body_1>
           <el-scrollbar :style="{height: (dialogHeight - 170) + 'px'}">
             <prospective-design ref='history1' :returnFormData="returnFormData"></prospective-design>

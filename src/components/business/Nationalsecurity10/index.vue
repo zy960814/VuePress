@@ -8,7 +8,7 @@
       label-width="130px"
       :show-message="false"
     >
-      <el-row style="margin-top:18px;">
+      <el-row>
         <el-col :span="11">
           <el-form-item label="省级文物保护单位名称" prop="nationalSecurityName" class="redStar">
             <el-input v-model="form.nationalSecurityName" placeholder="请选择全国重点文物保护单位"></el-input>

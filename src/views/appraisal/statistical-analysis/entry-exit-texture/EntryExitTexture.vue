@@ -60,6 +60,9 @@
 <script>
   import TableOptMenu from '@/components/commons/TableOptMenu'
   import {print} from '@/utils/common'
+  import {queryReport, exportReport} from '@/api/appraisal/statistical-analysis'
+  import exportParams from './exportParams'
+  import download from '@/utils/download'
 
   export default {
     components: {
@@ -118,46 +121,11 @@
           }]
         },
         datePickerVal: null,
-        tableData: [{
-          texture: '石器',
-          cj: 61,
-          lsjjfcj: 146,
-          lscj: 2,
-          lscjfjj: 99,
-          jzcj: 4,
-          total: 312
-        }, {
-          texture: '玉器',
-          cj: 51,
-          lsjjfcj: 46,
-          lscj: 5,
-          lscjfjj: 25,
-          jzcj: 0,
-          total: 127
-        }, {
-          texture: '砖瓦',
-          cj: 6,
-          lsjjfcj: 0,
-          lscj: 0,
-          lscjfjj: 7,
-          jzcj: 0,
-          total: 13
-        }, {
-          texture: '陶瓷',
-          cj: 10,
-          lsjjfcj: 103,
-          lscj: 0,
-          lscjfjj: 144,
-          jzcj: 1,
-          total: 258
-        }],
+        tableData: [],
         totalCount: 0,
         queryParams: {
-          pagination: {
-            currentPage: 1,
-            pageSize: 5
-          },
-          keyword: ''
+          beginDate: '',
+          endDate: ''
         }
       }
     },
@@ -168,7 +136,7 @@
       }
     },
     mounted() {
-
+      this.search();
     },
     methods: {
       itemClick(evt) {
@@ -177,11 +145,17 @@
             print('printDOMElement');
             break;
           case 'export':
+            var subtitle = document.querySelector('.hxl__subtitle').innerText;
+            exportReport(exportParams(this.queryParams, subtitle)).then(({data}) => {
+              download(data, document.querySelector('.hxl__title').innerText, 0);
+            });
             break;
         }
       },
       search() {
-
+        this.queryParams.beginDate = this.datePickerVal ? this.datePickerVal[0].format('yyyy-MM-dd 00:00:00') : '';
+        this.queryParams.endDate = this.datePickerVal ? this.datePickerVal[1].format('yyyy-MM-dd 23:59:59') : '';
+        queryReport(this.queryParams, 3).then(({data}) => this.tableData = data)
       }
     }
   }

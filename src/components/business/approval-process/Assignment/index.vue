@@ -5,7 +5,7 @@
     </div>
     <div class="content clear-float">
       <el-form ref="form" :model="form" :rules="rules" label-position="left" label-width="110px">
-        <el-form-item>
+        <el-form-item label="分派给：">
           <el-radio-group v-model="form.radio">
             <el-radio :label="1">文物保护与考古司</el-radio>
             <el-radio :label="2">博物馆与社会文物司</el-radio>

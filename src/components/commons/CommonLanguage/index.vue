@@ -242,9 +242,7 @@ export default {
   computed: {
     // 常用语设置弹框
     dialogHeight() {
-      return this.$store.getters.screenHeight > 1200
-        ? 1200
-        : this.$store.getters.screenHeight
+      return this.$store.getters.screenHeight > 600 ? 600 : this.$store.getters.screenHeight
     },
     dialogContentHeight() {
       return this.dialogHeight - 185 + 'px'

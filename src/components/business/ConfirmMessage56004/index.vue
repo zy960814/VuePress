@@ -112,7 +112,7 @@ export default {
         { chargePerson: '方案编制负责人' },
         { chargeQualityType: '专业资格类型' },
         { qualityNum: '专业证书编号' },
-        { sendOrganization: '报送单位 ' },
+        { sendOrganization: '申报主体 ' },
         { otherIntroduction: '其他说明' }
       ],
       projectSituationTitle: [

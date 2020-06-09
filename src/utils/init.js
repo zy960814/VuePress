@@ -107,9 +107,9 @@ function routeGuard() {
     // }
   });
 
-  // router.afterEach(() => {
-  //   NProgress.done();
-  // });
+  router.afterEach(() => {
+    NProgress.done();
+  });
 }
 
 /**

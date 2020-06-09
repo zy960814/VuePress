@@ -2,7 +2,7 @@
 <!-- 评估机构 -->
   <div class="content">
     <el-card class="box-card" shadow="never">
-      <div slot="header">资质单位从业信息</div>
+      <div slot="header">资质单位从业信息审核</div>
       <apply-form :data="titleData" @tab-click="itemClick">
         <template #titleInsertL_one>
           <span style="font-size:14px;">当前状态：{{SwStatus()}}</span>
@@ -15,7 +15,7 @@
         <template #body>
           <div class="scrollBox" :style="{height: contentHeight}">
             <div class="tempBox">
-              <apply-form-item data="单位机构信息" class="hxl_item " >
+              <apply-form-item data="单位基本信息" class="hxl_item " >
                 <Agency-information :status='status' :allData="allData" class="center" :showInfo="true" ref="agencyInformation"/>
               </apply-form-item>
             </div>
@@ -25,7 +25,7 @@
             <apply-form-item data="单位技术人员构成" class="hxl_item">
               <technicist :status='status' :allData="allData" class="center"></technicist>
             </apply-form-item>
-            <apply-form-item data="独立承担且已完成的文物保护工程业绩" class="hxl_item">
+            <apply-form-item data="文物保护工程业绩" class="hxl_item">
               <historic-reservation class="historic-reservation center" :status='status' :addProject='addProject' :allData="allData"></historic-reservation>
             </apply-form-item>
             <apply-form-item data="获奖情况" class="hxl_item">
@@ -95,14 +95,14 @@ export default {
       dialogFormVisible:false,
       dialogFormVisibleType:false,
       // 切换按钮标题
-      titleData: ['单位机构信息', '单位资质信息', '单位技术人员构成','独立承担且已完成的文物保护工程业绩','获奖情况','省级文物行政部门意见','中国古迹遗址保护协会意见'],
+      titleData: ['单位基本信息', '单位资质信息', '单位技术人员构成','文物保护工程业绩','获奖情况','省级文物行政部门意见','中国古迹遗址保护协会意见'],
       applyFormData: {},
       status: 6,
       disabled:true,
       Project:[],
       saveOrsubmit:'',
       allData:{
-        AgencyInformation:{ // 单位机构信息 数据
+        AgencyInformation:{ // 单位基本信息 数据
           form: {
             address: "",
             areaCode: "",
@@ -123,7 +123,7 @@ export default {
             remark:'',
           },
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[],
           remark:'',
         },
@@ -184,7 +184,7 @@ export default {
     findWorkOrder() {
 
     },
-    // 单位机构信息标记状态改变: 1已核, 2存疑
+    // 单位基本信息标记状态改变: 1已核, 2存疑
     organStatusChange(value) {
       console.log(value,'value')
     },
@@ -232,7 +232,7 @@ export default {
     getAllData(status){ // 获取页面所有数据
       this.status=status;
       this.allData={
-        AgencyInformation:{ // 单位机构信息 数据
+        AgencyInformation:{ // 单位基本信息 数据
          form:{
             instName:'1111',
             creditCode:'111111',
@@ -250,46 +250,46 @@ export default {
             itemName2:'1111'
          }
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[
-                    {
-                      approvalDepart: "国家文物局",
-                      approvalNo: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "1",
-                      finishTime: "",
-                      id: "8a8086a170f610870171e97c30280313",
-                      isDesign: null,
-                      itemCode: "1",
-                      itemType: null,
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      projectCategory: null,
-                      projectLevel: null,
-                      projectName: "颐和园围墙修缮工程",
-                      protectDepart: "颐和园",
-                      protectionDepartLevel: "1",
-                      startTime: ""
-                    },
-                    {
-                      approvalDepart: "国家文物局",
-                      approvalNo: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "0",
-                      finishTime: "",
-                      id: "8a8086a170f610870171e97c30280313",
-                      isDesign: null,
-                      itemCode: "1",
-                      itemType: null,
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      projectCategory: null,
-                      projectLevel: null,
-                      projectName: "颐和园围墙修缮工程",
-                      protectDepart: "颐和园",
-                      protectionDepartLevel: "1",
-                      startTime: ""
-                    }
+            {
+              approvalDepart: "国家文物局",
+              approvalNo: "文物保函【2015】1号",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "1",
+              finishTime: "",
+              id: "8a8086a170f610870171e97c30280313",
+              isDesign: null,
+              itemCode: "1",
+              itemType: null,
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              projectCategory: null,
+              projectLevel: null,
+              projectName: "颐和园围墙修缮工程",
+              protectDepart: "颐和园",
+              protectionDepartLevel: "1",
+              startTime: ""
+            },
+            {
+              approvalDepart: "国家文物局",
+              approvalNo: "文物保函【2015】1号",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "0",
+              finishTime: "",
+              id: "8a8086a170f610870171e97c30280313",
+              isDesign: null,
+              itemCode: "1",
+              itemType: null,
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              projectCategory: null,
+              projectLevel: null,
+              projectName: "颐和园围墙修缮工程",
+              protectDepart: "颐和园",
+              protectionDepartLevel: "1",
+              startTime: ""
+            }
           ],
           remark:'',
         },
@@ -306,34 +306,34 @@ export default {
         },
         QualificationInformation:{//单位资质信息
             tableData: [
-                    {
-                      approvalDepartment: "国家文物局",
-                      approvalSymbol: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "1",
-                      levelCode: "1",
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      quaEndTime: "2020-05-29",
-                      quaStartTime: "2020-05-03",
-                      qualificationInfoId: "8a8086a170f610870171e97c303b0314",
-                      qualificationLevel: "勘察设计甲级",
-                      qualRangeName:'111' 
-                    },
-                    {
-                      approvalDepartment: "国家文物局",
-                      approvalSymbol: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "0",
-                      levelCode: "4",
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      quaEndTime: "2020-05-21",
-                      quaStartTime: "2020-05-04",
-                      qualificationInfoId: "8a8086a170f610870171e97c30400318",
-                      qualificationLevel: "勘察设计乙级",
-                      qualRangeName:'111'
-                    }
+              {
+                approvalDepartment: "国家文物局",
+                approvalSymbol: "文物保函【2015】1号",
+                checkStatus: null,
+                docType: {},
+                finishFlag: "1",
+                levelCode: "1",
+                organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+                quaEndTime: "2020-05-29",
+                quaStartTime: "2020-05-03",
+                qualificationInfoId: "8a8086a170f610870171e97c303b0314",
+                qualificationLevel: "勘察设计甲级",
+                qualRangeName:'111' 
+              },
+              {
+                approvalDepartment: "国家文物局",
+                approvalSymbol: "文物保函【2015】1号",
+                checkStatus: null,
+                docType: {},
+                finishFlag: "0",
+                levelCode: "4",
+                organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+                quaEndTime: "2020-05-21",
+                quaStartTime: "2020-05-04",
+                qualificationInfoId: "8a8086a170f610870171e97c30400318",
+                qualificationLevel: "勘察设计乙级",
+                qualRangeName:'111'
+              }
             ],
             remark:'',
         },

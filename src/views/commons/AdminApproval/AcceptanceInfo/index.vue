@@ -1,9 +1,9 @@
 <template>
   <apply-form-item data="受理信息">
-    <!-- 受理/预约调整 -->
-    <acceptance-appointment />
     <!-- 分派 -->
     <assignment />
+    <!-- 受理/预约调整 -->
+    <acceptance-appointment />
     <!-- 材料补正 -->
     <material-correction :data="{}" />
     <!-- 准予受理通知 -->

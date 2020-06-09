@@ -24,6 +24,14 @@
         label-position="left"
         label-width="110px"
       >
+        <el-col :span="12">
+          <el-form-item label="发送给：" prop="remark" class="redStar">
+            <div style="display: flex; justify-content: space-between">
+              <el-input v-model="form.remark" style="flex: 1"></el-input>
+              <el-button type="primary" @click="showSendDialog" style="margin-left: 10px">选择</el-button>
+            </div>
+          </el-form-item>
+        </el-col>
         <el-col :span="24">
           <el-form-item style="margin-bottom: 9px">
             <common-language @language="language" />
@@ -36,6 +44,38 @@
         </el-col>
       </el-form>
     </template>
+    <!-- 选择--发送备选人弹框 -->
+    <my-dialog
+      width="1000px"
+      class="boxCard_dialog"
+      :height="sendDialogHeight + 'px'"
+      center
+      :visible.sync="sendDialogVisible"
+      :append-to-body="true"
+    >
+      <select-dialog
+        :pageTabsData="sendPageTabsData"
+        title="选择发送人员"
+        @handle-select="handleSelect"
+        :height="sendDialogHeight + 'px'"
+        ref="selectDialog"
+      >
+        <template #body_1>
+          <el-scrollbar :style="{height: (sendDialogHeight - 170) + 'px'}">
+            <SendDialog></SendDialog>
+          </el-scrollbar>
+        </template>
+        <template #body_2>
+          <el-scrollbar :style="{height: (sendDialogHeight - 170) + 'px'}">
+            <SendDialog></SendDialog>
+          </el-scrollbar>
+        </template>
+      </select-dialog>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="sendDialogVisible = false">确定</el-button>
+        <el-button @click="sendDialogVisible = false">取消</el-button>
+      </span>
+    </my-dialog>
   </div>
 </template>
 
@@ -46,14 +86,19 @@ import AllowAcceptance from '@/components/business/approval-process/AllowAccepta
 import RefuseAcceptance from '@/components/business/approval-process/RefuseAcceptance'
 import MaterialCorrection from '@/components/business/approval-process/MaterialCorrection'
 import { handleAppointment, appraisalAccept } from '@/api/appraisal/temp-entry'
-
+import SelectDialog from '@/components/commons/SelectDialog'
+import SendDialog from '@/components/business/ApplyForDialog/SendDialog'
+import MyDialog from '@/components/commons/MyDialog'
 export default {
   components: {
     PageTabs,
     CommonLanguage,
     AllowAcceptance,
     RefuseAcceptance,
-    MaterialCorrection
+    MaterialCorrection,
+    SendDialog,
+    SelectDialog,
+    MyDialog
   },
   props: {
     itemId: String
@@ -97,7 +142,10 @@ export default {
           { required: true, message: ' ', trigger: 'blur' },
           { max: 200, message: '长度最大 200 个字符', trigger: 'blur' }
         ]
-      }
+      },
+      sendPageTabsData: {tabs:[{title:'常用'},{title:'全部'}]},
+      sendDialogVisible: false, // 发送备选人弹窗
+      sendDialogHeight: 600 // 发送弹窗高度
     }
   },
   watch: {
@@ -149,6 +197,9 @@ export default {
           }
         })
       }
+    },
+    showSendDialog(){
+      this.sendDialogVisible = true
     }
   }
 }

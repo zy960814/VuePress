@@ -42,7 +42,7 @@
   import {saveApplyEexhibition, listCulturalRelic} from '@/api/personal/schedule/56020/repeat-entry'
   import MyDialog from '@/components/commons/MyDialog'
   import BusinessGuide from '@/views/personal/schedule/56020/temp-entry/exhibition-apply/BusinessGuide'
-  import {getApplyEeDetail,getDTempBizId} from '@/api/appraisal/repeat-entry'
+  import {getApplyEeDetail, getDTempBizId} from '@/api/appraisal/repeat-entry'
 
   export default {
     components: {
@@ -139,7 +139,7 @@
       },
       // 设置临时进境事项 ID
       x_setItemId(itemId) {
-          this.x_itemId = itemId;
+        this.x_itemId = itemId;
       }
     }
   }

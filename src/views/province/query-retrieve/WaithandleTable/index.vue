@@ -1,5 +1,6 @@
 <template>
   <div class="waitHandle">
+    <div class="headerTable"></div>
     <collapse-form @search-fun="searchFun" @reset-form="resetForm" :collapse-enabled="false">
       <div slot="header" class="fl">
         <div class="row_1">
@@ -568,7 +569,7 @@ export default {
       // checkColInit: [],
       // 已办表格表头拖拽显隐后的属性--------往后台传从后台取
       // dropColInit: [],
-      fixButtonArr: ['查看','流程跟踪','许可决定'], //固定列的按钮
+      fixButtonArr: ['查看','流程跟踪','批复文件'], //固定列的按钮
       totalCount: 0,
 
       queryParams: {},
@@ -987,6 +988,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.headerTable {
+  margin: 10px -20px;
+  border-top: 1px solid #e6ebf5;
+}
 .textRight {
   float: right;
 }

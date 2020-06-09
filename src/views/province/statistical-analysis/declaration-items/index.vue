@@ -2,7 +2,7 @@
   <div class="content">
     <el-card shadow="never" class="header_Table">
       <div slot="header">
-        申报事项情况统计
+        申报事项情况
       </div>
       <waithandle-table />
      

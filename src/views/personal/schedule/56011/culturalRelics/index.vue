@@ -89,7 +89,7 @@ export default {
       disabled:true,
       Project:[],
       allData:{
-        AgencyInformation:{ // 单位机构信息 数据
+        AgencyInformation:{ // 单位基本信息 数据
           form: {
             address: "",
             areaCode: "",
@@ -121,7 +121,7 @@ export default {
             isIllegal: '',
           }
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[],
         },
         ProvincialBureau:{//省文物局意见
@@ -160,14 +160,13 @@ export default {
   },
   watch: {},
   created() {
-    this.getAllData();
+     this.getAllData()
   },
   mounted() {
-
   },
   destroyed() {},
   methods: {
-    // 单位机构信息标记状态改变: 1已核, 2存疑
+    // 单位基本信息标记状态改变: 1已核, 2存疑
     organStatusChange(value) {
       console.log(value,'value')
     },
@@ -200,7 +199,6 @@ export default {
       }
       if(value==='submit' && flag && flag1 && flag2){//提交且表单数据都正常
         this.dialogVisible = true;//显示提交弹框
-        console.log(this.$refs.essentialInformation.form);
         this.applyFormData={
           basicInformationTitle:{
               instName: '申请事项名称',
@@ -216,14 +214,23 @@ export default {
              radio: '申请资质类型',
              provinceList: '申请资质业务范围' ,otherCheckbox: '',
              nationalSecurityName: '备注',
-            ...this.$refs.applicationMaterial.form,
+            ...this.$refs.applicationInformation.form,
           },
           applyMaterialTitle: {
             technologyDocument: '资质申请表签字盖章扫描件',
             technologyDocument0: '法定代表人任职文件加盖公章彩色扫描件',
-            ...this.$refs.applicationInformation.form,
+            ...this.$refs.applicationMaterial.form,
           },
         }
+        let index = this.applyFormData.basicMessageTitle.provinceList.indexOf('其他')
+        let str;
+        console.log(index)
+        if(index===-1){
+          str = this.applyFormData.basicMessageTitle.provinceList.join(',')
+        }else{
+          str = this.applyFormData.basicMessageTitle.provinceList.filter((item,index1)=> index!==index1).join(',')+",其他"+'【' + this.applyFormData.basicMessageTitle.otherCheckbox + '】'
+        } 
+        this.applyFormData.basicMessageTitle.provinceList=str;
         // window.alert('调用提交接口  刷新页面状态');
       }
     },
@@ -235,7 +242,7 @@ export default {
     // 获取从业维护信息的数据
     getAllData(){
        this.allData={
-        AgencyInformation:{ // 单位机构信息 数据
+        AgencyInformation:{ // 单位基本信息 数据
          form:{
             instName:'1111',
             creditCode:'111111',
@@ -253,46 +260,46 @@ export default {
             itemName2:'1111'
          }
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[
-                    {
-                      approvalDepart: "国家文物局",
-                      approvalNo: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "1",
-                      finishTime: "",
-                      id: "8a8086a170f610870171e97c30280313",
-                      isDesign: null,
-                      itemCode: "1",
-                      itemType: null,
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      projectCategory: null,
-                      projectLevel: null,
-                      projectName: "颐和园围墙修缮工程",
-                      protectDepart: "颐和园",
-                      protectionDepartLevel: "1",
-                      startTime: ""
-                    },
-                    {
-                      approvalDepart: "国家文物局",
-                      approvalNo: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "0",
-                      finishTime: "",
-                      id: "8a8086a170f610870171e97c30280313",
-                      isDesign: null,
-                      itemCode: "1",
-                      itemType: null,
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      projectCategory: null,
-                      projectLevel: null,
-                      projectName: "颐和园围墙修缮工程",
-                      protectDepart: "颐和园",
-                      protectionDepartLevel: "1",
-                      startTime: ""
-                    }
+            {
+              approvalDepart: "国家文物局",
+              approvalNo: "文物保函【2015】1号",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "1",
+              finishTime: "",
+              id: "8a8086a170f610870171e97c30280313",
+              isDesign: null,
+              itemCode: "1",
+              itemType: null,
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              projectCategory: null,
+              projectLevel: null,
+              projectName: "颐和园围墙修缮工程",
+              protectDepart: "颐和园",
+              protectionDepartLevel: "1",
+              startTime: ""
+            },
+            {
+              approvalDepart: "国家文物局",
+              approvalNo: "文物保函【2015】1号",
+              checkStatus: null,
+              docType: {},
+              finishFlag: "0",
+              finishTime: "",
+              id: "8a8086a170f610870171e97c30280313",
+              isDesign: null,
+              itemCode: "1",
+              itemType: null,
+              organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+              projectCategory: null,
+              projectLevel: null,
+              projectName: "颐和园围墙修缮工程",
+              protectDepart: "颐和园",
+              protectionDepartLevel: "1",
+              startTime: ""
+            }
           ],
           remark:'',
         },
@@ -309,34 +316,34 @@ export default {
         },
         QualificationInformation:{//单位资质信息
             tableData: [
-                    {
-                      approvalDepartment: "国家文物局",
-                      approvalSymbol: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "1",
-                      levelCode: "1",
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      quaEndTime: "2020-05-29",
-                      quaStartTime: "2020-05-03",
-                      qualificationInfoId: "8a8086a170f610870171e97c303b0314",
-                      qualificationLevel: "勘察设计甲级",
-                      qualRangeName:'111' 
-                    },
-                    {
-                      approvalDepartment: "国家文物局",
-                      approvalSymbol: "文物保函【2015】1号",
-                      checkStatus: null,
-                      docType: {},
-                      finishFlag: "0",
-                      levelCode: "4",
-                      organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
-                      quaEndTime: "2020-05-21",
-                      quaStartTime: "2020-05-04",
-                      qualificationInfoId: "8a8086a170f610870171e97c30400318",
-                      qualificationLevel: "勘察设计乙级",
-                      qualRangeName:'111'
-                    }
+              {
+                approvalDepartment: "国家文物局",
+                approvalSymbol: "文物保函【2015】1号",
+                checkStatus: null,
+                docType: {},
+                finishFlag: "1",
+                levelCode: "1",
+                organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+                quaEndTime: "2020-05-29",
+                quaStartTime: "2020-05-03",
+                qualificationInfoId: "8a8086a170f610870171e97c303b0314",
+                qualificationLevel: "勘察设计甲级",
+                qualRangeName:'111' 
+              },
+              {
+                approvalDepartment: "国家文物局",
+                approvalSymbol: "文物保函【2015】1号",
+                checkStatus: null,
+                docType: {},
+                finishFlag: "0",
+                levelCode: "4",
+                organizationInfoId: "f2d233e1-cdbd-4954-80fe-e0908c1d16fd",
+                quaEndTime: "2020-05-21",
+                quaStartTime: "2020-05-04",
+                qualificationInfoId: "8a8086a170f610870171e97c30400318",
+                qualificationLevel: "勘察设计乙级",
+                qualRangeName:'111'
+              }
             ],
             remark:'',
         },

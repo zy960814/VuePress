@@ -1,6 +1,6 @@
 <template>
   <el-card shadow="never">
-    <div slot="header">全国重点文物保护单位原址保护措施申请</div>
+    <div slot="header">全国重点文物保护单位原址保护措施审批申请</div>
     <el-scrollbar :style="{height: height}">
       <apply-form-item data="基本信息">
         <vertical-table
@@ -117,7 +117,7 @@ export default {
         { designPerson: '设计人/单位' },
         { qualityType: '资质类型' },
         { level: '级别' },
-        { sendOrganization: '报送单位 ' },
+        { sendOrganization: '申报主体' },
         { otherIntroduction: '其他说明' }
       ],
       projectSituationTitle: [

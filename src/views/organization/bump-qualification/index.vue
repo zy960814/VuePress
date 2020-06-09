@@ -1,13 +1,13 @@
 <template>
   <div class="content">
     <el-card class="box-card" shadow="never">
-      <div slot="header">从业信息维护</div>
+      <div slot="header">资质信息维护</div>
       <apply-form :data="titleData" @tab-click="itemClick">
         <template #titleInsertL_one>
           <span style="font-size:14px;">当前状态：{{SwStatus()}}</span>
         </template>
         <template #titleInsertR_one>
-          <el-button @click="xxwh()" v-if="status == 1" type="primary">信息维护</el-button>
+          <el-button @click="xxwh()" v-if="status == 1" type="primary">维护</el-button>
           <el-button @click="saveOrSubmit('save')" v-if="status == 2 || status == 3" type="primary">保存</el-button>
           <el-button @click="saveOrSubmit('submit')" v-if="status == 2 || status == 3" type="primary">提交</el-button>
           <el-button v-if="status == 4" @click="retrunSubmit">撤回提交</el-button>
@@ -16,7 +16,7 @@
         <template #body>
           <div class="scrollBox" :style="{height: contentHeight}">
             <div class="tempBox">
-              <apply-form-item data="单位机构信息" class="hxl_item " >
+              <apply-form-item data="单位基本信息" class="hxl_item " >
                 <Agency-information :status='status' :allData="allData" class="center" ref="agencyInformation"/>
               </apply-form-item>
             </div>
@@ -26,21 +26,12 @@
             <apply-form-item data="单位技术人员构成" class="hxl_item">
               <technicist :status='status' :allData="allData" class="center"></technicist>
             </apply-form-item>
-            <apply-form-item data="独立承担且已完成的文物保护工程业绩" class="hxl_item">
+            <apply-form-item data="文物保护工程业绩" class="hxl_item">
               <historic-reservation class="historic-reservation center" :status='status' :addProject='addProject' :allData="allData"></historic-reservation>
             </apply-form-item>
             <apply-form-item data="获奖情况" class="hxl_item">
               <scholarship-prize :status='status' :Project="Project" class="center" :allData="allData"></scholarship-prize>
             </apply-form-item>
-            <!-- <apply-form-item data="省文物局意见" class="hxl_item" style="margin-top:10px;" v-if="status == 5 || status == 6 || status == 7">
-              <provincial-bureau :status='status' :allData="allData"></provincial-bureau>
-            </apply-form-item>
-            <apply-form-item data="中国古迹遗址保护协会意见" class="hxl_item" v-if="status == 6 || status == 7" style="margin-top:10px;" >
-              <china-association :status='status' :allData="allData"></china-association>
-            </apply-form-item>
-            <apply-form-item data="文保司文物处意见" class="hxl_item" v-if="status == 7" style="margin-top:10px;">
-              <cultural-relics :status='status' :allData="allData"></cultural-relics>
-            </apply-form-item> -->
           </div>
         </template>
       </apply-form>
@@ -75,9 +66,6 @@ import QualificationInformation from '../bump-qualification/QualificationInforma
 import Technicist from '../bump-qualification/Technicist'
 import HistoricReservation from '../bump-qualification/HistoricReservation'
 import ScholarshipPrize from '../bump-qualification/ScholarshipPrize'
-// import ProvincialBureau from '../bump-qualification/ProvincialBureau'
-// import ChinaAssociation from '../bump-qualification/ChinaAssociation'
-// import CulturalRelics from '../bump-qualification/CulturalRelics'
 import ApplyFormItem from '@/components/commons/ApplyForm/ApplyFormItem'
 import ApplyForm from '@/components/commons/ApplyForm'
 import MyDialog from '@/components/commons/MyDialog'
@@ -90,9 +78,6 @@ export default {
     HistoricReservation,
     ScholarshipPrize,
     QualificationInformation,
-    // ChinaAssociation,
-    // ProvincialBureau,
-    // CulturalRelics,
     MyDialog
   },
   props: {},
@@ -101,14 +86,14 @@ export default {
       dialogFormVisible:false,
       dialogFormVisibleType:false,
       // 切换按钮标题
-      titleData: ['单位机构信息', '单位资质信息', '单位技术人员构成','独立承担且已完成的文物保护工程业绩','获奖情况'],
+      titleData: ['单位基本信息', '单位资质信息', '单位技术人员构成','文物保护工程业绩','获奖情况'],
       applyFormData: {},
       status: 1,
       disabled:true,
       Project:[],
       saveOrsubmit:'',
       allData:{
-        AgencyInformation:{ // 单位机构信息 数据
+        AgencyInformation:{ // 单位基本信息 数据
           form: {
             address: "",
             areaCode: "",
@@ -143,7 +128,7 @@ export default {
             remark:'',
           }
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[],
           remark:'',
         },
@@ -190,7 +175,7 @@ export default {
   mounted() {},
   destroyed() {},
   methods: {
-    // 单位机构信息标记状态改变: 1已核, 2存疑
+    // 单位基本信息标记状态改变: 1已核, 2存疑
     organStatusChange(value) {
       console.log(value,'value')
     },
@@ -238,7 +223,7 @@ export default {
     getAllData(status){ // 获取页面所有数据
       this.status=status;
       this.allData={
-        AgencyInformation:{ // 单位机构信息 数据
+        AgencyInformation:{ // 单位基本信息 数据
          form:{
             address: "",
             areaCode: "",
@@ -273,7 +258,7 @@ export default {
             remark:'',
           },
         },
-        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
+        HistoricReservation:{//文物保护工程业绩
           tableData:[
                     {
                       approvalDepart: "国家文物局",

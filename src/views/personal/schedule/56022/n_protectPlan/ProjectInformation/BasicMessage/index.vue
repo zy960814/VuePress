@@ -136,8 +136,8 @@
 
       <!-- <el-row>
         <el-col :span="11">
-          <el-form-item label="报送单位" prop="sendOrganization">
-            <el-input v-model="form.sendOrganization" placeholder="请填写报送单位名称"></el-input>
+          <el-form-item label="申报主体" prop="sendOrganization">
+            <el-input v-model="form.sendOrganization" placeholder="请填写申报主体名称"></el-input>
           </el-form-item>
         </el-col>
       </el-row>-->

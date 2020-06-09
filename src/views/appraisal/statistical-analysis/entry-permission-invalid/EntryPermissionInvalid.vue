@@ -19,9 +19,9 @@
     </div>
     <el-table :data="tableData" border stripe :height="tableHeight">
       <el-table-column
-          prop="appr_inst_name"
+          prop="appraisal_name"
           fixed="left"
-          width="150"
+          width="200"
           align="center"
           label="进出境管理处">
       </el-table-column>
@@ -121,6 +121,9 @@
 <script>
   import TableOptMenu from '@/components/commons/TableOptMenu'
   import {print} from '@/utils/common'
+  import {queryReport, exportReport} from '@/api/appraisal/statistical-analysis'
+  import exportParams from './exportParams'
+  import download from '@/utils/download'
 
   export default {
     components: {
@@ -182,11 +185,8 @@
         tableData: [],
         totalCount: 0,
         queryParams: {
-          pagination: {
-            currentPage: 1,
-            pageSize: 5
-          },
-          keyword: ''
+          beginDate: '',
+          endDate: ''
         }
       }
     },
@@ -197,7 +197,7 @@
       }
     },
     mounted() {
-
+      this.search();
     },
     methods: {
       itemClick(evt) {
@@ -206,11 +206,17 @@
             print('printDOMElement');
             break;
           case 'export':
+            var subtitle = document.querySelector('.hxl__subtitle').innerText;
+            exportReport(exportParams(this.queryParams, subtitle)).then(({data}) => {
+              download(data, document.querySelector('.hxl__title').innerText, 0);
+            });
             break;
         }
       },
       search() {
-
+        this.queryParams.beginDate = this.datePickerVal ? this.datePickerVal[0].format('yyyy-MM-dd 00:00:00') : '';
+        this.queryParams.endDate = this.datePickerVal ? this.datePickerVal[1].format('yyyy-MM-dd 23:59:59') : '';
+        queryReport(this.queryParams, 1).then(({data}) => this.tableData = data)
       }
     }
   }

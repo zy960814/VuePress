@@ -23,26 +23,6 @@
         :verticalTableData="applyFormData.applyMaterialTitle"
         :verticalTableTitle="applyMaterialTitle"
         width="150px">
-        <!-- <template #line_00="scope">
-          <el-link type="primary" v-if="scope.colValue[0]">{{scope.colValue[0].name}}</el-link>
-          <el-link type="primary" v-else>{{ }}</el-link>
-        </template>
-        <template #line_10="scope">
-          <el-link type="primary" v-if="scope.colValue[0]">{{scope.colValue[0].name}}</el-link>
-          <el-link type="primary" v-else>{{ }}</el-link>
-        </template>
-        <template #line_20="scope">
-          <el-link type="primary" v-if="scope.colValue[0]">{{scope.colValue[0].name}}</el-link>
-          <el-link type="primary" v-else>{{ }}</el-link>
-        </template>
-        <template #line_30="scope">
-          <el-link type="primary" v-if="scope.colValue[0]">{{scope.colValue[0].name}}</el-link>
-          <el-link type="primary" v-else>{{ }}</el-link>
-        </template>
-        <template #line_40="scope">
-          <el-link type="primary" v-if="scope.colValue[0]">{{scope.colValue[0].name}}</el-link>
-          <el-link type="primary" v-else>{{ }}</el-link>
-        </template> -->
       </vertical-table>
     </apply-form-item>
     <apply-form-item data="申请单位从业信息" class="hxl_item">
@@ -84,13 +64,12 @@ export default {
         { creditCode: '申请文件标题' },
         { applyDocumentNum_part1: '申请文号', applyDocumentNum_part2: '',applyDocumentNum_part3: ''},
         { technologyDocument: '申请文件' },
-        { economicType: '申请人' },
-        { projectLevel: '经办人', },
+        { economicType: '申请人', projectLevel: '经办人',  },
         { linkPhone: '联系方式' },
       ],
       basicMessageTitle: [
         { radio: '申请资质类型' },
-        { provinceList: '申请资质业务范围' ,otherCheckbox: ''},
+        { provinceList: '申请资质业务范围'},
         { nationalSecurityName: '备注' },
       ],
       applyMaterialTitle: [
@@ -105,7 +84,9 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    // console.log(this.applyFormData,'this.applyFormData')
+  },
   destroyed() {},
   methods: {}
 }

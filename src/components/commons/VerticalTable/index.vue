@@ -67,7 +67,7 @@ export default {
     borderTitle: {
       type: String,
       default: ''
-    },
+    }
   },
   data() {
     return {
@@ -107,7 +107,6 @@ export default {
   },
   mounted() {
     // this.renderData()
-    console.log(this.dataArray,'dataArray')
   },
   methods: {
     // 竖形表格数据处理函数
