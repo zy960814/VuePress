@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <el-card class="box-card" shadow="never">
-      <div slot="header">全国重点文物保护单位原址保护措施审批申请</div>
+      <div slot="header">全国重点文物保护单位原址保护措施申请</div>
       <apply-form :data="titleData" @tab-click="itemClick">
         <template #titleInsertL_one>
           <span style="font-size:12px;">
@@ -25,7 +25,7 @@
             :visible.sync="dialogVisible"
           >
             <el-card shadow="never">
-              <div slot="header">全国重点文物保护单位原址保护措施审批申请</div>
+              <div slot="header">全国重点文物保护单位原址保护措施申请</div>
               <el-scrollbar :style="{height: dialogHeight-138+'px'}">
                 <!-- <div style="margin-bottom:10px;"> -->
                 <confirm-message :key="Math.random()" :applyFormData="applyFormData" />

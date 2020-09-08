@@ -31,7 +31,7 @@
         :visible.sync="dialogTableVisible"
       >
         <el-card shadow="never">
-          <div slot="header">全国重点文物保护单位原址保护措施审批</div>
+          <div slot="header">全国重点文物保护单位原址保护措施申请</div>
           <el-scrollbar :style="{height: dialogContentHeight}">
             <el-table :data="tableData" border style="width: 100%;">
               <el-table-column type="index" min-width="50" label="序号"></el-table-column>

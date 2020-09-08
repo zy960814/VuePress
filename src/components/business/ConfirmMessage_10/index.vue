@@ -98,7 +98,7 @@ export default {
       basicMessageTitle: [
         { nationalSecurityName: '省级文物保护单位名称', province: '省份 ' },
         { projectName: '项目名称' },
-        { designPerson: '设计人/单位', sendOrganization: '申报主体 ' },
+        { designPerson: '设计人/单位', sendOrganization: '报送单位 ' },
         { otherIntroduction: '其他说明' }
       ],
       projectSituationTitle: [

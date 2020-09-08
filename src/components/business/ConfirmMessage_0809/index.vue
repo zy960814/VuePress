@@ -120,7 +120,7 @@ export default {
         { relicCategory: '文物类型' },
         { projectName: '项目名称' },
         { formationCompany: '编制单位', '': '' },
-        { sendOrganization: '申报主体', '': '' },
+        { sendOrganization: '报送单位', '': '' },
         { funds: '经费金额', '': '' },
         { otherIntroduction: '其他说明' }
       ],

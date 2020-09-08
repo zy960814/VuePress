@@ -25,7 +25,7 @@
               :on-error="fileUploadError"
             >
               <el-button size="small" type="primary">点击上传</el-button>
-              <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
+              <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
             </el-upload>
           </el-form-item>
         </el-col>
@@ -47,7 +47,7 @@
               :on-error="fileUploadError"
             >
               <el-button size="small" type="primary">点击上传</el-button>
-              <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
+              <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
             </el-upload>
           </el-form-item>
         </el-col>
@@ -69,7 +69,7 @@
               :on-error="fileUploadError"
             >
               <el-button size="small" type="primary">点击上传</el-button>
-              <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
+              <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
             </el-upload>
           </el-form-item>
         </el-col>
@@ -91,7 +91,7 @@
               :on-error="fileUploadError"
             >
               <el-button size="small" type="primary">点击上传</el-button>
-              <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
+              <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
             </el-upload>
           </el-form-item>
         </el-col>
@@ -113,7 +113,7 @@
               :on-error="fileUploadError"
             >
               <el-button size="small" type="primary">点击上传</el-button>
-              <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
+              <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
             </el-upload>
           </el-form-item>
         </el-col>

@@ -109,7 +109,7 @@
       </el-row>-->
       <el-row>
         <el-col :span="11">
-          <el-form-item label="申报主体" prop="sendOrganization">
+          <el-form-item label="报送单位" prop="sendOrganization">
             <el-input v-model="form.sendOrganization" placeholder></el-input>
           </el-form-item>
         </el-col>

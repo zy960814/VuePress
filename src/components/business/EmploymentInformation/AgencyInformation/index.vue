@@ -6,8 +6,7 @@
         :verticalTableData="allData.AgencyInformation.form"
         :verticalTableTitle="thingVerticalTableTitle"
         width="150px">
-        <template v-if="showInfo" v-slot:[statusbuttonblotname[k]]="scope" v-for="(item,k) in statusbuttonblotname" >
-            {{scope.colValue}}
+        <template v-slot:[statusbuttonblotname[k]] v-for="(item,k) in statusbuttonblotname">
           <status-button v-if="sxg!='ProvincialBureau'" class="fr" :initStatus="0" @getStatus="getStatus($event,k)" :key="k"></status-button>
         </template>
       </vertical-table>
@@ -36,10 +35,6 @@ export default {
     sxg:{
       type:String,
       default:'',
-    },
-    showInfo:{
-      type:Boolean,
-      default:false
     }
   },
   watch:{
@@ -130,7 +125,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.allData,'111111')
   },
 }
 </script>

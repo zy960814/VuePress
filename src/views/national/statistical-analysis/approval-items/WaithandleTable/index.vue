@@ -43,7 +43,9 @@
           </el-option>
       </el-select>
     </table-opt-menu>
-   
+    <div style="text-align: center; line-height: 28px; margin: -33px 0 5px 0">
+      <span class="hxl__subtitle" style="font-size: 14px">（{{ this.datePickerVal ? this.datePickerVal[0].format('yyyy年M月d日') + '-' + this.datePickerVal[1].format('yyyy年M月d日') : '全部统计数据' }}）</span>
+    </div>
     <el-table :data="tableData" border stripe :height="tableHeight">
       <el-table-column
           fixed="left"
@@ -144,27 +146,27 @@
         </el-table-column>
       </el-table-column>
       <el-table-column
+        prop="lsjj_zhanlan"
+        align="center"
+        label="考古挖掘">
+        <el-table-column
           prop="lsjj_zhanlan"
           align="center"
-          label="考古挖掘">
+          label="考古挖掘计划许可(重大事项)">
           <el-table-column
-            prop="lsjj_zhanlan"
+            prop="apply56022"
             align="center"
-            label="考古挖掘计划许可(重大事项)">
-            <el-table-column
-              prop="apply56022"
-              align="center"
-              width="110"
-              label="申请数">
-            </el-table-column>
-            <el-table-column
-              prop="end56022"
-              align="center"
-              width="110"
-              label="办结数">
-            </el-table-column>
+            width="110"
+            label="申请数">
+          </el-table-column>
+          <el-table-column
+            prop="end56022"
+            align="center"
+            width="110"
+            label="办结数">
           </el-table-column>
         </el-table-column>
+      </el-table-column>
       <el-table-column>
         <el-table-column
           prop="total"
@@ -182,6 +184,7 @@
           </el-table-column>
         </el-table-column>
       </el-table-column>
+      
     </el-table>
   </div>
 </template>

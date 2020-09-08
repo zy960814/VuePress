@@ -50,7 +50,7 @@
       v-if="dropColInit.length>0&&checkColInit.length>0"
       :dialogShow.sync="headerDialogVisible"
       @click-0="tableFillin"
-      minwidth="100px"
+      :minwidth="100"
       @sort-change="sort"
       @header-dragend="headerDrag"
       @drop="dropHeader"

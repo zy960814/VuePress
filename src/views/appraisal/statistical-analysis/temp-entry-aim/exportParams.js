@@ -38,7 +38,7 @@ export default function (queryParams, subtitle) {
     }, {
       col: ['进出境管理处', '文物出境', '文物临时出境', '文物临时进境', null, null, null, null, null, null, null, '合计']
     }, {
-      col: [null, '个人携带', '展览', '展览', '个人携带', null, null, null, null, null, null, null]
+      col: [null, '运送、邮寄、携带', '展览', '展览', '运送、邮寄、携带', null, null, null, null, null, null, null]
     }, {
       col: [null, null, null, null, '收藏', '拍卖', '销售', '修复', '科研', '展览', '其他', null]
     }],

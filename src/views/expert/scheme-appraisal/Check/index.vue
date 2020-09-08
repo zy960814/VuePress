@@ -1,7 +1,7 @@
 <template>
  <div class="content">
     <el-card class="box-card" shadow="never">
-      <div slot="header">全国重点文物保护单位原址保护措施审批</div>
+      <div slot="header">全国重点文物保护单位原址保护措施申请</div>
       <apply-form :data="titleData" @tab-click="itemClick">
         <template #titleInsertR_one>
           <el-button @click="saveOrSubmit('save')" type="primary">保存</el-button>

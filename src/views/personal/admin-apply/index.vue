@@ -436,6 +436,69 @@ export default {
       tableData: [
         // 第一行
         {
+          eventCode: '56003',
+          eventName: '外国人或者外国团体在中国境内考古调查、勘探、发掘许可',
+          acceptInstitution: '国家文物局',
+          processTime:
+            '20个工作日（征求社会科学研究机构及其他科研机构和有关专家意见，征询国防、外交、公安、国家安全等部门意见和报请国务院特别许可时间除外)',
+          applySubject: '项目中方承担单位',
+          applyType: '涉外考古调查、勘探和发掘许可',
+          operate: ['线下办理'],
+          flag: false
+        },
+        {
+          eventCode: '56003',
+          eventName: '外国人或者外国团体在中国境内考古调查、勘探、发掘许可',
+          acceptInstitution: '国家文物局',
+          processTime:
+            '20个工作日（征求社会科学研究机构及其他科研机构和有关专家意见时间除外)',
+          applySubject: '项目中方承担单位',
+          applyType: '涉外考古合作研究项目许可',
+          operate: ['线下办理']
+        },
+        {
+          eventCode: '56003',
+          eventName: '外国人或者外国团体在中国境内考古调查、勘探、发掘许可',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日',
+          applySubject: '留学、研究人员所在中国学习、研究单位',
+          applyType: '外国留学人员在中国境内参加考古调查、勘探、发掘活动许可',
+          operate: ['线下办理']
+        },
+        // 第二行
+        {
+          eventCode: '56004',
+          eventName: '全国重点文物保护单位原址保护措施申请',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '项目建设单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        //第三行
+        {
+          eventCode: '56005',
+          eventName:
+            '省级和全国重点文物保护单位保护范围内其他建设工程或者爆破、钻探、挖掘等作业审批',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '项目所在地省级人民政府',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第四行
+        {
+          eventCode: '56006',
+          eventName: '考古发掘资质许可',
+          acceptInstitution: '国家文物局',
+          processTime:
+            '30个工作日（征求社会科学研究机构及其他科研机构和有关专家意见所需时间除外）',
+          applySubject: '考古发掘资质申请单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第四行
+        {
           eventCode: '56008',
           eventName: '考古发掘计划许可',
           acceptInstitution: '国家文物局',
@@ -455,26 +518,192 @@ export default {
           applyType: '一般事项',
           operate: ['申请']
         },
-        // 第二行
+        //第五行
+        {
+          eventCode: '56009',
+          eventName: '水下文物的考古勘探和发掘活动许',
+          acceptInstitution: '国家文物局',
+          processTime:
+            '30个工作日（征求社会科学研究机构及其他科研机构和有关专家意见所需时间除外）',
+          applySubject: '水下考古勘探和发掘实施单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第六行
+        {
+          eventCode: '56010',
+          eventName: '省级文物保护单位的迁移或拆除审批',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '项目所在地省级人民政府',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第七行
+        {
+          eventCode: '56011',
+          eventName: '文物保护工程（勘察设计甲级、施工一级、监理甲级）资质审批',
+          acceptInstitution: '国家文物局',
+          processTime: '30个工作日（不包括专业论证审查和公示时间）',
+          applySubject: '资质申请单位',
+          applyType: '文物保护工程资质申请',
+          operate: ['申请']
+        },
+        {
+          eventCode: '56010',
+          eventName: '省级文物保护单位的迁移或拆除审批',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '项目所在地省级人民政府',
+          applyType: '文物保护工程资质变更',
+          operate: ['申请']
+        },
+        // 第八行
+
+        {
+          eventCode: '56012',
+          eventName: '全国重点文物保护单位建设控制地带内建设工程设计方案审批',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '项目建设单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第九行
+        {
+          eventCode: '56013',
+          eventName:
+            '国际合作考古调查、勘探、发掘的文物或自然标本送到境外进行分析化验或技术鉴定许可',
+          acceptInstitution: '国家文物局',
+          processTime:
+            '20个工作日（征求社会科学研究机构及其他科研机构和有关专家意见所需时间除外）',
+          applySubject: '考古发掘单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第十行
         {
           eventCode: '56014',
-          eventName: '全国重点文物保护单位修缮审批 ',
+          eventName:
+            '全国重点文物保护单位修缮审批(一) 全国重点文物保护单位修缮项目审批',
           acceptInstitution: '国家文物局或者文物局委托的省级文物行政部门',
           processTime: '20个工作日（委托评估、专家评审时间除外）',
           applySubject: '全国重点文物保护单位管理机构或者所有人',
-          applyType: '全国重点文物保护单位修缮项目审批',
+          applyType: '项目计划（立项）已获批（国家文物局审批事项）',
           operate: ['申请']
         },
         {
           eventCode: '56014',
-          eventName: '全国重点文物保护单位修缮审批 ',
+          eventName:
+            '全国重点文物保护单位修缮审批(一) 全国重点文物保护单位修缮项目审批',
+          acceptInstitution: '国家文物局或者文物局委托的省级文物行政部门',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '全国重点文物保护单位管理机构或者所有人',
+          applyType: '项目计划（立项）已获批（省级文物局审批事项）',
+          operate: ['申请']
+        },
+        {
+          eventCode: '56014',
+          eventName:
+            '全国重点文物保护单位修缮审批(一) 全国重点文物保护单位修缮项目审批',
+          acceptInstitution: '国家文物局或者文物局委托的省级文物行政部门',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '全国重点文物保护单位管理机构或者所有人',
+          applyType: '不申请中央财政补贴资金',
+          operate: ['申请']
+        },
+        {
+          eventCode: '56014',
+          eventName:
+            '全国重点文物保护单位修缮审批(一) 全国重点文物保护单位修缮项目审批',
+          acceptInstitution: '国家文物局或者文物局委托的省级文物行政部门',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '全国重点文物保护单位管理机构或者所有人',
+          applyType: '抢救性工程',
+          operate: ['申请']
+        },
+
+        {
+          eventCode: '56014',
+          eventName:
+            '全国重点文物保护单位修缮审批(二) 全国重点文物保护单位安全防护工程项目审批',
           acceptInstitution: '国家文物局或者文物局委托的省级文物行政部门',
           processTime: '20个工作日（委托评估、专家评审时间除外）',
           applySubject: '全国重点文物保护单位管理机构或者产权单位',
-          applyType: '全国重点文物保护单位安全防护工程项目审批',
+          applyType: '国家文物局审批事项',
           operate: ['申请']
         },
-        // 第三行
+
+        {
+          eventCode: '56014',
+          eventName:
+            '全国重点文物保护单位修缮审批(二) 全国重点文物保护单位安全防护工程项目审批',
+          acceptInstitution: '国家文物局或者文物局委托的省级文物行政部门',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '全国重点文物保护单位管理机构或者产权单位',
+          applyType: '省级文物局审批事项',
+          operate: ['申请']
+        },
+        // 第十一行
+        {
+          eventCode: '56015',
+          eventName: '馆藏一级文物的修复、复制、拓印许可',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '文物收藏单位',
+          applyType: '修复许可',
+          operate: ['申请']
+        },
+        {
+          eventCode: '56015',
+          eventName: '馆藏一级文物的修复、复制、拓印许可',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '文物收藏单位',
+          applyType: '复制许可',
+          operate: ['申请']
+        },
+        {
+          eventCode: '56015',
+          eventName: '馆藏一级文物的修复、复制、拓印许可',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '文物收藏单位',
+          applyType: '拓印许可',
+          operate: ['申请']
+        },
+        // 第十二行
+        {
+          eventCode: '56016',
+          eventName: '文物出境展览许可',
+          acceptInstitution: '国家文物局',
+          processTime: '30个工作日（委托评估、专家评审时间除外）',
+          applySubject: '文物出境展览的承办单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第十三行
+        {
+          eventCode: '56017',
+          eventName: '非国有文物收藏单位和其他单位借用国有馆藏一级文物许可',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '文物出借单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第十四行
+        {
+          eventCode: '56019',
+          eventName: '博物馆一级藏品取样分析许可',
+          acceptInstitution: '国家文物局',
+          processTime: '20个工作日（委托评估、专家评审时间除外）',
+          applySubject: '文物收藏单位',
+          applyType: '--',
+          operate: ['申请']
+        },
+        // 第十五行
+
         {
           eventCode: '56020',
           eventName: '文物出境许可',
@@ -519,6 +748,25 @@ export default {
           applySubject: '运送、邮寄、携带文物出境的单位或个人',
           applyType: '文物出境',
           operate: ['个人携带申请']
+        },
+        // 第十六行
+        {
+          eventCode: '56022',
+          eventName: '全国重点文物保护单位保护规划审批',
+          acceptInstitution: '国家文物局',
+          processTime: '不限时',
+          applySubject: '全国重点文物保护单位管理机构或者产权单位',
+          applyType: '国家文物局审批事项',
+          operate: ['申请']
+        },
+        {
+          eventCode: '56022',
+          eventName: '全国重点文物保护单位保护规划审批',
+          acceptInstitution: '国家文物局',
+          processTime: '不限时',
+          applySubject: '全国重点文物保护单位管理机构或者产权单位',
+          applyType: '省级文物局审批事项',
+          operate: ['申请']
         }
       ],
       // 后台取的表格合并数据
@@ -526,33 +774,94 @@ export default {
         {
           columnIndex: 0,
           colapseArr: {
-            '0': [2, 1],
-            '2': [2, 1],
-            '4': [5, 1]
+            '0': [3, 1],
+            '3': [1, 1],
+            '4': [1, 1],
+            '5': [1, 1],
+            '6': [2, 1],
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [2, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [6, 1],
+            '20': [3, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [5, 1],
+            '31': [2, 1]
           }
         },
         {
           columnIndex: 1,
           colapseArr: {
-            '0': [2, 1],
-            '2': [2, 1],
-            '4': [5, 1]
+            '0': [3, 1],
+            '3': [1, 1],
+            '4': [1, 1],
+            '5': [1, 1],
+            '6': [2, 1],
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [2, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [4, 1],
+            '18': [2, 1],
+            '20': [3, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [5, 1],
+            '31': [2, 1]
           }
         },
         {
           columnIndex: 2,
           colapseArr: {
-            '0': [2, 1],
-            '2': [2, 1],
-            '4': [5, 1]
+            '0': [3, 1],
+            '3': [1, 1],
+            '4': [1, 1],
+            '5': [1, 1],
+            '6': [2, 1],
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [2, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [4, 1],
+            '18': [2, 1],
+            '20': [3, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [5, 1],
+            '31': [2, 1]
           }
         },
         {
           columnIndex: 3,
           colapseArr: {
-            '0': [2, 1],
-            '2': [2, 1],
-            '4': [5, 1]
+            '0': [1, 1],
+            '1': [1, 1],
+            '2': [1, 1],
+            '3': [1, 1],
+            '4': [1, 1],
+            '5': [1, 1],
+            '6': [2, 1],
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [2, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [4, 1],
+            '18': [2, 1],
+            '20': [3, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [5, 1],
+            '31': [2, 1]
           }
         },
         {
@@ -562,7 +871,23 @@ export default {
             '1': [1, 1],
             '2': [1, 1],
             '3': [1, 1],
-            '4': [5, 1]
+            '4': [1, 1],
+            '5': [1, 1],
+            '6': [1, 1],
+            '7': [1, 1],
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [2, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [4, 1],
+            '18': [2, 1],
+            '20': [3, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [5, 1],
+            '31': [2, 1]
           }
         },
         {
@@ -576,7 +901,31 @@ export default {
             '5': [1, 1],
             '6': [1, 1],
             '7': [1, 1],
-            '8': [1, 1]
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [1, 1],
+            '11': [1, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [1, 1],
+            '15': [1, 1],
+            '16': [1, 1],
+            '17': [1, 1],
+            '18': [1, 1],
+            '19': [1, 1],
+            '20': [1, 1],
+            '21': [1, 1],
+            '22': [1, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [1, 1],
+            '27': [1, 1],
+            '28': [1, 1],
+            '29': [1, 1],
+            '30': [1, 1],
+            '31': [1, 1],
+            '32': [1, 1]
           }
         },
         {
@@ -590,7 +939,31 @@ export default {
             '5': [1, 1],
             '6': [1, 1],
             '7': [1, 1],
-            '8': [1, 1]
+            '8': [1, 1],
+            '9': [1, 1],
+            '10': [1, 1],
+            '11': [1, 1],
+            '12': [1, 1],
+            '13': [1, 1],
+            '14': [1, 1],
+            '15': [1, 1],
+            '16': [1, 1],
+            '17': [1, 1],
+            '18': [1, 1],
+            '19': [1, 1],
+            '20': [1, 1],
+            '21': [1, 1],
+            '22': [1, 1],
+            '23': [1, 1],
+            '24': [1, 1],
+            '25': [1, 1],
+            '26': [1, 1],
+            '27': [1, 1],
+            '28': [1, 1],
+            '29': [1, 1],
+            '30': [1, 1],
+            '31': [1, 1],
+            '32': [1, 1]
           }
         }
       ],
@@ -770,52 +1143,117 @@ export default {
     btnClick(type) {
       // console.log(type)
       switch (type) {
-        case '00':
-          this.$router.push('/personal/schedule/56008/majorMatter')
-          break
-        case '10':
-          this.$router.push('/personal/schedule/56008/commonMatter')
-          break
-        case '20':
-          this.$router.push('/personal/schedule/56014/56014_a')
-          break
         case '30':
-          this.$router.push('/personal/schedule/56014/56014_b')
+          this.$router.push('/personal/schedule/56004')
           break
         case '40':
+          this.$router.push('/personal/schedule/56005')
+          break
+        case '50':
+          this.$router.push('/personal/schedule/56006')
+          break
+        case '60':
+          this.$router.push('/personal/schedule/56008/majorMatter')
+          break
+        case '70':
+          this.$router.push('/personal/schedule/56008/commonMatter')
+          break
+        case '80':
+          this.$router.push('/personal/schedule/56009')
+          break
+        case '90':
+          this.$router.push('/personal/schedule/56010')
+          break
+        case '100':
+          this.$router.push('/personal/schedule/56011/culturalRelics')
+          break
+        case '110':
+          this.$router.push('/personal/schedule/56011/alteration')
+          break
+        case '120':
+          this.$router.push('/personal/schedule/56012')
+          break
+        case '130':
+          this.$router.push('/personal/schedule/56013')
+          break
+        case '160':
+          this.$router.push('/personal/schedule/56014/financing')
+          break
+        case '170':
+          this.$router.push('/personal/schedule/56014/rescue')
+          break
+        case '140':
+          this.$router.push('/personal/schedule/56014/n_approvalplan')
+          break
+        case '150':
+          this.$router.push('/personal/schedule/56014/p_approvalplan')
+          break
+        case '180':
+          this.$router.push('/personal/schedule/56014/n_reportCRB')
+          break
+        case '190':
+          this.$router.push('/personal/schedule/56014/p_reportCRB')
+          break
+        case '200':
+          this.$router.push('/personal/schedule/56015/repairPlan')
+          break
+        case '210':
+          this.$router.push('/personal/schedule/56015/copyPlan')
+          break
+        case '220':
+          this.$router.push('/personal/schedule/56015/rubbingsPlan')
+          break
+        case '230':
+          this.$router.push('/personal/schedule/56016')
+          break
+        case '240':
+          this.$router.push('/personal/schedule/56017')
+          break
+        case '250':
+          this.$router.push('/personal/schedule/56019')
+          break
+        case '260':
           this.$router.push(
             '/personal/schedule/56020/temp-entry/personal-carry-apply'
           )
           break
-        case '41':
+        case '261':
           this.$router.push(
             '/personal/schedule/56020/temp-entry/exhibition-apply'
           )
           break
-        case '50':
+        case '270':
           this.$router.push(
             '/personal/schedule/56020/repeat-exit/personal-carry-apply'
           )
           break
-        case '51':
+        case '271':
           this.$router.push(
             '/personal/schedule/56020/repeat-exit/exhibition-apply'
           )
           break
-        case '60':
+        case '280':
           this.$router.push(
             '/personal/schedule/56020/temp-exit/exhibition-apply'
           )
           break
-        case '70':
+        case '290':
           this.$router.push(
             '/personal/schedule/56020/repeat-entry/exhibition-apply'
           )
           break
-        case '80':
+        case '300':
           this.$router.push(
             '/personal/schedule/56020/exit/personal-carry-apply'
           )
+          break
+        case '310':
+          this.$router.push('/personal/schedule/56022/n_protectPlan')
+          break
+        case '320':
+          this.$router.push('/personal/schedule/56022/p_protectPlan')
+          break
+        default:
           break
       }
     },

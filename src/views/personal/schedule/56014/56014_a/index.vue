@@ -185,7 +185,7 @@ export default {
           this.$refs.immediatelyReplay.getFormData(type),
           this.$refs.immediatelyReplay.$refs.replayDialog.getFormData(type),
           this.$refs.projectInformation.$refs.basicMessage.getFormData(type),
-          this.$refs.projectInformation.$refs.basicMessage.$refs.chargepersonDialog.getFormData(
+          this.$refs.projectInformation.$refs.basicMessage.$refs.personalOrganizationDialog.getFormData(
             type
           ),
           this.$refs.projectInformation.$refs.projectSituation.getFormData(

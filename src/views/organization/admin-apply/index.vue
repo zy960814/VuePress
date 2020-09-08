@@ -340,7 +340,7 @@ export default {
         decisionOrganization: '国家文物局（国家文物进出境审核管理处）',
         // 审查类型
         examineType: '前审后批',
-        // 申请主体
+        // 申报主体
         applySubject: '运送、邮寄、携带文物出境单位或个人',
         // 受理机构
         receiveOrgan: '国家文物进出境审核管理处',
@@ -646,7 +646,7 @@ export default {
           processTime: '15个工作日',
           applySubject: '运送、邮寄、携带文物出境的单位或个人',
           applyType: '文物临时进境',
-          operate: ['个人携带申请', '展览申请']
+          operate: ['申请']
         },
         {
           eventCode: '56020',
@@ -655,7 +655,7 @@ export default {
           processTime: '15个工作日',
           applySubject: '运送、邮寄、携带文物出境的单位或个人',
           applyType: '文物复出境',
-          operate: ['个人携带申请', '展览申请']
+          operate: ['申请']
         },
         {
           eventCode: '56020',
@@ -664,7 +664,7 @@ export default {
           processTime: '15个工作日',
           applySubject: '运送、邮寄、携带文物出境的单位或个人',
           applyType: '文物临时出境',
-          operate: ['展览申请']
+          operate: ['申请']
         },
         {
           eventCode: '56020',
@@ -673,7 +673,7 @@ export default {
           processTime: '15个工作日',
           applySubject: '运送、邮寄、携带文物出境的单位或个人',
           applyType: '文物复进境',
-          operate: ['展览申请']
+          operate: ['申请']
         },
         {
           eventCode: '56020',
@@ -682,7 +682,7 @@ export default {
           processTime: '15个工作日',
           applySubject: '运送、邮寄、携带文物出境的单位或个人',
           applyType: '文物出境',
-          operate: ['个人携带申请']
+          operate: ['申请']
         },
         // 第十五行
         {
@@ -1105,24 +1105,10 @@ export default {
           this.$router.push('/personal/schedule/56019')
           break
         case '200':
-          this.$router.push(
-            '/personal/schedule/56020/temp-entry/personal-carry-apply'
-          )
-          break
-        case '201':
-          this.$router.push(
-            '/personal/schedule/56020/temp-entry/exhibition-apply'
-          )
+          this.$router.push('/personal/schedule/56020/v2/temp-entry')
           break
         case '210':
-          this.$router.push(
-            '/personal/schedule/56020/repeat-exit/personal-carry-apply'
-          )
-          break
-        case '211':
-          this.$router.push(
-            '/personal/schedule/56020/repeat-exit/exhibition-apply'
-          )
+          this.$router.push('/personal/schedule/56020/v2/repeat-exit')
           break
         case '220':
           this.$router.push(
@@ -1180,7 +1166,7 @@ export default {
       table.push(tmpRow)
       tmpRow = []
 
-      tmpRow.push({ key: '申请主体', value: basicMessage.applySubject })
+      tmpRow.push({ key: '申报主体', value: basicMessage.applySubject })
       tmpRow.push({ key: '受理机构', value: basicMessage.receiveOrgan })
       table.push(tmpRow)
       tmpRow = []

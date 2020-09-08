@@ -111,7 +111,7 @@ export default {
       ],
       tableData1: [],
       columns: [
-        { label: '省份', data: 'organizationName', width: '150' },
+        { label: '天津市', data: 'organizationName', width: '150' },
         { label: '名称', data: 'legalRepresentative', width: '100' },
         { label: '地址', data: 'districtCode', width: '150' },
         { label: '联系电话', data: 'address', width: '230' },

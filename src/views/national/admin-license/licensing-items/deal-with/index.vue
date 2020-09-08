@@ -1,20 +1,20 @@
 <template>
   <el-card class="box-card" shadow="never">
     <div slot="header">全国重点文物保护单位修缮工程设计方案（修缮计划已获国家文物局批准）申请</div>
-    <apply-form :data="titleData" @tab-click="itemClick" widthOneL="25%" widthTwoL="70%">
+    <apply-form :data="titleData" @tab-click="itemClick" widthOneL="25%">
       <template #titleInsertL_one>
         <span style="font-size: 12px">
           <i class="el-icon-time" style="margin-right: 3px"></i>本事项总限时为20个工作日，剩余7工作日
         </span>
       </template>
       <template #titleInsertR_one>
-        <opt-button-group @item-click="btnItemClick"/>
+        <opt-button-group @item-click="btnItemClick" />
       </template>
       <template #titleInsertR_two>
         <el-link @click="dialogFormVisiblePress = true" type="primary" class="fr">流程跟踪</el-link>
-        <el-link @click="dialogFormPreservation = true" type="primary" class="fr mr-10">国保单位</el-link>
-        <el-link @click="dialogFormCultural = true" type="primary" class="fr mr-10">馆藏文物</el-link>
-        <el-link @click="dialogFormIframe = true" type="primary" class="fr mr-10">文物地图</el-link>
+        <el-link @click="dialogFormPreservation = true" type="primary" class="fr">国保单位</el-link>
+        <el-link @click="dialogFormCultural = true" type="primary" class="fr">馆藏文物</el-link>
+        <el-link @click="dialogFormIframe = true" type="primary" class="fr">文物地图</el-link>
       </template>
       <template #body>
         <div class="scrollBox" :style="{height: contentHeight}">
@@ -45,6 +45,38 @@
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="dialogFormVisiblePress = false">确定</el-button>
         <el-button @click="dialogFormVisiblePress = false">取消</el-button>
+      </span>
+    </my-dialog>
+    <!-- 发送弹框 -->
+    <my-dialog
+      width="1000px"
+      class="boxCard_dialog"
+      :height="dialogHeight + 'px'"
+      center
+      :visible.sync="dialogFormVisibleType"
+      :append-to-body="true"
+    >
+      <select-dialog
+        :pageTabsData="pageTabsData2"
+        title="选择发送人员"
+        @handle-select="handleSelect"
+        :height="dialogHeight + 'px'"
+        ref="selectDialog"
+      >
+        <template #body_1>
+          <el-scrollbar :style="{height: (dialogHeight - 170) + 'px'}">
+            <SendDialog></SendDialog>
+          </el-scrollbar>
+        </template>
+        <template #body_2>
+          <el-scrollbar :style="{height: (dialogHeight - 170) + 'px'}">
+            <SendDialog></SendDialog>
+          </el-scrollbar>
+        </template>
+      </select-dialog>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="confirm1">确定</el-button>
+        <el-button @click="dialogFormVisibleType = false">取消</el-button>
       </span>
     </my-dialog>
     <!-- 上传最终稿弹框 -->
@@ -162,8 +194,9 @@ import EvaluationOpinions from '@/views/commons/AdminApproval/EvaluationOpinions
 import ItemAudit from '@/views/commons/AdminApproval/ItemAudit'
 import ApproveInfo from '@/views/commons/AdminApproval/ApproveInfo'
 import ReplyFile from '@/views/commons/AdminApproval/ReplyFile'
-import SelectDialog from '@/components/commons/SelectDialog'
 import MyDialog from '@/components/commons/MyDialog'
+import SelectDialog from '@/components/commons/SelectDialog'
+import SendDialog from '@/components/business/ApplyForDialog/SendDialog'
 import Upload from '@/components/business/ApplyForDialog/Upload'
 import Specialist from '@/components/business/ApplyForDialog/assessment-experts/specialist'
 import Assess from '@/components/business/ApplyForDialog/assessment-experts/assess'
@@ -184,8 +217,9 @@ export default {
     ItemAudit,
     ApproveInfo,
     ReplyFile,
-    SelectDialog,
     MyDialog,
+    SelectDialog,
+    SendDialog,
     Upload,
     Specialist,
     Trace,
@@ -225,6 +259,12 @@ export default {
           { title: '评估机构', num: '' },
           { title: '会审', num: '' }
         ]
+      },
+      pageTabsData2: {
+        tabs: [
+          { title: '常用', num: '' },
+          { title: '全部', num: '' }
+        ]
       }
     }
   },
@@ -247,6 +287,11 @@ export default {
         ? 220
         : this.$store.getters.screenHeight
     },
+    dialogHeight2() {
+      return this.$store.getters.screenHeight > 370
+        ? 370
+        : this.$store.getters.screenHeight
+    }
   },
   beforeMount() {
     this.applyCode = this.$route.query.applyCode
@@ -297,6 +342,9 @@ export default {
     },
     confirm1() {
       this.dialogFormVisibleType = false
+    },
+    confirm2() {
+      this.dialogFormTrace1 = false
     },
     handleSelect(key) {
       this.selectMenuItem = key

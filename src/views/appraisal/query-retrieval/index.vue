@@ -28,7 +28,7 @@
         // 切换页签的数据
         pageTabsData: {
           tabs: [{
-            title: '进出境事项',
+            title: '文物进出境事项',
             num: ''
           }, {
             title: '进出境文物',

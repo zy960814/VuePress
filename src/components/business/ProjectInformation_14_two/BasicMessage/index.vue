@@ -119,8 +119,8 @@
       <chargeperson-dialog ref="chargepersonDialog" />
       <el-row v-if="applyType==='n_reportCRB'">
         <el-col :span="11">
-          <el-form-item label="申报主体" prop="sendOrganization">
-            <el-input v-model="form.sendOrganization" placeholder="如由省级文物局转报，须填写原申报主体"></el-input>
+          <el-form-item label="报送单位" prop="sendOrganization">
+            <el-input v-model="form.sendOrganization" placeholder="如由省级文物局转报，须填写原报送单位"></el-input>
           </el-form-item>
         </el-col>
       </el-row>

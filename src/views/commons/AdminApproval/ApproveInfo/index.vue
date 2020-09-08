@@ -6,10 +6,10 @@
         <el-main>
           <el-scrollbar>
             <!-- 审批信息 -->
-            <!--<h4 class="title">
+            <h4 class="title">
               审批信息
               <div class="fr titleLine"></div>
-            </h4>-->
+            </h4>
             <el-card class="box-card" shadow="never">
               <div slot="header" class="clearfix">
                 <h3>国家文物局发文</h3>
@@ -20,27 +20,27 @@
                 </div>
               </div>
               <el-form
-                  ref="form"
-                  :model="form"
-                  label-position="left"
-                  label-width="60px"
-                  :show-message="false"
+                ref="form"
+                :model="form"
+                label-position="left"
+                label-width="60px"
+                :show-message="false"
               >
                 <el-row :gutter="5">
                   <el-col :span="6">
                     <el-form-item label="业务主题" prop="bussinessTheme" class="redStar redLabel">
                       <el-select
-                          v-model="form.bussinessTheme"
-                          size="mini"
-                          placeholder
-                          class="mr-10"
-                          disabled
+                        v-model="form.bussinessTheme"
+                        size="mini"
+                        placeholder
+                        class="mr-10"
+                        disabled
                       >
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
                         ></el-option>
                       </el-select>
                     </el-form-item>
@@ -48,17 +48,17 @@
                   <el-col :span="6">
                     <el-form-item label="形式代码" prop="typeCode" class="redStar redLabel">
                       <el-select
-                          v-model="form.typeCode"
-                          size="mini"
-                          placeholder
-                          class="mr-10"
-                          disabled
+                        v-model="form.typeCode"
+                        size="mini"
+                        placeholder
+                        class="mr-10"
+                        disabled
                       >
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
                         ></el-option>
                       </el-select>
                     </el-form-item>
@@ -66,17 +66,17 @@
                   <el-col :span="6">
                     <el-form-item label="公开形式" prop="publicType" class="redStar redLabel">
                       <el-select
-                          v-model="form.publicType"
-                          size="mini"
-                          placeholder
-                          class="mr-10"
-                          disabled
+                        v-model="form.publicType"
+                        size="mini"
+                        placeholder
+                        class="mr-10"
+                        disabled
                       >
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
                         ></el-option>
                       </el-select>
                     </el-form-item>
@@ -94,18 +94,18 @@
                       <el-col :span="9">
                         <el-form-item label="文号" prop="documentNo_partOne" class="redStar redLabel">
                           <el-select
-                              style="width:70px;"
-                              v-model="form.documentNo_partOne"
-                              size="mini"
-                              placeholder
-                              class="mr-10"
-                              disabled
+                            style="width:70px;"
+                            v-model="form.documentNo_partOne"
+                            size="mini"
+                            placeholder
+                            class="mr-10"
+                            disabled
                           >
                             <el-option
-                                v-for="item in options"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value"
+                              v-for="item in options"
+                              :key="item.value"
+                              :label="item.label"
+                              :value="item.value"
                             ></el-option>
                           </el-select>
                         </el-form-item>
@@ -115,17 +115,17 @@
                           <div class="inpuWidthBox">
                             <span style="line-height:32px;margin-left:5px">〔</span>
                             <el-select
-                                style="width:80px;"
-                                v-model="form.documentNo_partTwo"
-                                size="mini"
-                                placeholder
-                                disabled
+                              style="width:80px;"
+                              v-model="form.documentNo_partTwo"
+                              size="mini"
+                              placeholder
+                              disabled
                             >
                               <el-option
-                                  v-for="item in options"
-                                  :key="item.value"
-                                  :label="item.label"
-                                  :value="item.value"
+                                v-for="item in options"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value"
                               ></el-option>
                             </el-select>
                             <span style="line-height:32px">〕</span>
@@ -137,9 +137,9 @@
                           <ul>
                             <li class="fl">
                               <el-input
-                                  v-model="form.documentNo_partThree"
-                                  style="width:60px;"
-                                  disabled
+                                v-model="form.documentNo_partThree"
+                                style="width:60px;"
+                                disabled
                               ></el-input>
                             </li>
                             <li class="fl" style="line-height:32px;">号</li>
@@ -152,34 +152,34 @@
                     <el-form-item label="封发" prop="fenfa_partOne" class="redStar redLabel">
                       <div style="display:flex;">
                         <el-select
-                            v-model="form.fenfa_partOne"
-                            size="mini"
-                            placeholder
-                            class="mr-10"
-                            style="flex:2;width:40px;"
-                            disabled
+                          v-model="form.fenfa_partOne"
+                          size="mini"
+                          placeholder
+                          class="mr-10"
+                          style="flex:2;width:40px;"
+                          disabled
                         >
                           <el-option
-                              v-for="item in options"
-                              :key="item.value"
-                              :label="item.label"
-                              :value="item.value"
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
                           ></el-option>
                         </el-select>
                         <span style="flex:1">月</span>
                         <el-select
-                            v-model="form.fenfa_partTwo"
-                            size="mini"
-                            placeholder
-                            class="mr-10"
-                            style="flex:2;width:40px;"
-                            disabled
+                          v-model="form.fenfa_partTwo"
+                          size="mini"
+                          placeholder
+                          class="mr-10"
+                          style="flex:2;width:40px;"
+                          disabled
                         >
                           <el-option
-                              v-for="item in options"
-                              :key="item.value"
-                              :label="item.label"
-                              :value="item.value"
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
                           ></el-option>
                         </el-select>
                         <span style="flex:1">日</span>
@@ -189,18 +189,18 @@
                   <el-col :span="5">
                     <el-form-item label="缓急" prop="huanji" class="redStar redLabel">
                       <el-select
-                          v-model="form.huanji"
-                          size="mini"
-                          placeholder
-                          class="mr-10"
-                          style="flex:2;width:75px;"
-                          disabled
+                        v-model="form.huanji"
+                        size="mini"
+                        placeholder
+                        class="mr-10"
+                        style="flex:2;width:75px;"
+                        disabled
                       >
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
                         ></el-option>
                       </el-select>
                     </el-form-item>
@@ -262,10 +262,10 @@
                     <el-form-item label="公章" prop="gz" class="redLabel redStar">
                       <el-select v-model="form.gz" size="mini" placeholder class="mr-10" disabled>
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
                         ></el-option>
                       </el-select>
                     </el-form-item>
@@ -274,10 +274,10 @@
                     <el-form-item label="稿纸类型" prop="gzlx" class="redLabel redStar">
                       <el-select v-model="form.gzlx" size="mini" placeholder class="mr-10" disabled>
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
                         ></el-option>
                       </el-select>
                     </el-form-item>
@@ -293,13 +293,13 @@
                   <el-col :span="7" :offset="10">
                     <el-form-item label="签发时间" prop="qfTime" class="redStar redLabel">
                       <el-date-picker
-                          format="yyyy"
-                          value-format="yyyy"
-                          v-model="form.qfTime"
-                          type="year"
-                          style="width:120px"
-                          placeholder="选择年"
-                          disabled
+                        format="yyyy"
+                        value-format="yyyy"
+                        v-model="form.qfTime"
+                        type="year"
+                        style="width:120px"
+                        placeholder="选择年"
+                        disabled
                       ></el-date-picker>
                     </el-form-item>
                   </el-col>
@@ -309,60 +309,38 @@
                   <el-col :span="24">
                     <el-form-item label="备注" prop="otherIntroduction" style="margin-bottom:0px;">
                       <el-input
-                          type="textarea"
-                          :rows="2"
-                          placeholder="描述不超过2000个汉字"
-                          v-model="form.otherIntroduction"
+                        type="textarea"
+                        :rows="2"
+                        placeholder="描述不超过2000个汉字"
+                        v-model="form.otherIntroduction"
                       ></el-input>
+                    </el-form-item>
+                  </el-col>
+                </el-row>
+                <el-row>
+                  <el-col :span="24">
+                    <el-form-item
+                      style="margin-top:18px;margin-bottom:0px;"
+                      label="审批结果"
+                      prop="approvalResult"
+                      class="redStar"
+                    >
+                      <el-radio v-model="form.approvalResult" label="1">是</el-radio>
+                      <el-radio v-model="form.approvalResult" label="2">否</el-radio>
                     </el-form-item>
                   </el-col>
                 </el-row>
               </el-form>
             </el-card>
-
-            <!-- 审批意见 -->
-            <el-card style="margin-top: 20px" class="box-card" shadow="never">
-              <el-form
-                  label-position="left"
-                  label-width="110px"
-              >
-                <el-form-item label="是否批准" style="margin-bottom: 3px; text-align: left">
-                  <el-radio v-model="form.approvalResult" label="1">批准</el-radio>
-                  <el-radio v-model="form.approvalResult" label="2">不批准</el-radio>
-                </el-form-item>
-                <el-divider class="main_line"></el-divider>
-
-                <el-col :span="12">
-                  <el-form-item label="发送给：" prop="remark" class="redStar">
-                    <div style="display: flex; justify-content: space-between">
-                      <el-input v-model="form.name" style="flex: 1"></el-input>
-                      <el-button type="primary" @click="showSendDialog" style="margin-left: 10px">选择</el-button>
-                    </div>
-                  </el-form-item>
-                </el-col>
-                <el-col :span="24">
-                  <el-form-item style="margin-bottom: 9px">
-                    <common-language @language="language" />
-                  </el-form-item>
-                </el-col>
-                <el-col :span="24">
-                  <el-form-item label="办理意见" prop="remark" class="redStar">
-                    <el-input type="textarea" :rows="4" v-model="form.remark" placeholder="请输入内容"></el-input>
-                  </el-form-item>
-                </el-col>
-              </el-form>
-            </el-card>
-
             <!-- 办理意见 -->
             <h4 class="title">
-              办理意见列表
+              办理意见
               <div class="titleLine"></div>
             </h4>
             <el-card class="box-card" shadow="never" style="margin-bottom:10px;">
               <el-table :data="tableData" style="width: 100%" class="colorHover">
                 <el-table-column type="index" width="50"></el-table-column>
                 <el-table-column prop="handle" label="办理人" width="180"></el-table-column>
-                <el-table-column prop="xx" label="是否批准" width="80"></el-table-column>
                 <el-table-column prop="handleOpinion" label="办理意见"></el-table-column>
                 <el-table-column prop="handleTime" label="办理时间" width="180"></el-table-column>
               </el-table>
@@ -371,10 +349,10 @@
         </el-main>
         <!-- 右侧部分 -->
         <el-aside width="300px">
-          <!--<h4 class="title">
+          <h4 class="title">
             相关材料
             <div class="titleLine"></div>
-          </h4>-->
+          </h4>
           <div class="asideCard">
             <h5>发文附件</h5>
             <el-card class="smallCard" shadow="never">
@@ -458,19 +436,19 @@
     </div>
     <!-- 文物地图弹框 -->
     <my-dialog
-        width="1200px"
-        class="boxCard_dialog"
-        :height="dialogHeight + 'px'"
-        center
-        :visible.sync="dialogFormThumbnailsGis"
-        :append-to-body="true"
+      width="1200px"
+      class="boxCard_dialog"
+      :height="dialogHeight + 'px'"
+      center
+      :visible.sync="dialogFormThumbnailsGis"
+      :append-to-body="true"
     >
       <select-dialog
-          :pageTabsData="pageTabsData1"
-          title="邙山陵墓群"
-          @handle-select="handleSelect"
-          :height="dialogHeight + 'px'"
-          ref="selectDialog"
+        :pageTabsData="pageTabsData1"
+        title="邙山陵墓群"
+        @handle-select="handleSelect"
+        :height="dialogHeight + 'px'"
+        ref="selectDialog"
       >
         <template #body_1>
           <el-scrollbar :style="{height: (dialogHeight - 170) + 'px'}">
@@ -484,332 +462,264 @@
         </template>
       </select-dialog>
     </my-dialog>
-    <!-- 选择--发送备选人弹框 -->
-    <my-dialog
-      width="1000px"
-      class="boxCard_dialog"
-      :height="sendDialogVisible + 'px'"
-      center
-      :visible.sync="sendDialogVisible"
-      :append-to-body="true"
-    >
-      <select-dialog
-        :pageTabsData="{tabs:[{title:'常用'},{title:'全部'}]}"
-        title="选择发送人员"
-        @handle-select="handleSelect"
-        :height="sendDialogHeight + 'px'"
-        ref="selectDialog"
-      >
-        <template #body_1>
-          <el-scrollbar :style="{height: (sendDialogHeight - 170) + 'px'}">
-            <SendDialog></SendDialog>
-          </el-scrollbar>
-        </template>
-        <template #body_2>
-          <el-scrollbar :style="{height: (sendDialogHeight - 170) + 'px'}">
-            <SendDialog></SendDialog>
-          </el-scrollbar>
-        </template>
-      </select-dialog>
-      <span slot="footer" class="dialog-footer">
-     <el-button type="primary" @click="sendDialogVisible = false">确定</el-button>
-        <el-button @click="sendDialogVisible = false">取消</el-button>
-      </span>
-    </my-dialog>
   </apply-form-item>
 </template>
 
 <script>
-  import ApplyFormItem from '@/components/commons/ApplyForm/ApplyFormItem'
-  import MyDialog from '@/components/commons/MyDialog'
-  import SelectDialog from '@/components/commons/SelectDialog'
-  import Thumbnails from '@/components/business/ApplyForDialog/ThumbnailsGisDialog'
-  import ThumbnailsGis from '@/components/business/ApplyForDialog/ThumbnailsGisDialog/ThumbnailsGis'
-  import CommonLanguage from "@/components/commons/CommonLanguage"
-  import SendDialog from '@/components/business/ApplyForDialog/SendDialog'
+import ApplyFormItem from '@/components/commons/ApplyForm/ApplyFormItem'
+import MyDialog from '@/components/commons/MyDialog'
+import SelectDialog from '@/components/commons/SelectDialog'
+import Thumbnails from '@/components/business/ApplyForDialog/ThumbnailsGisDialog'
+import ThumbnailsGis from '@/components/business/ApplyForDialog/ThumbnailsGisDialog/ThumbnailsGis'
 
-  export default {
-    components: {
-      CommonLanguage,
-      ApplyFormItem,
-      MyDialog,
-      SelectDialog,
-      Thumbnails,
-      ThumbnailsGis,
-      SendDialog
-    },
-    data() {
-      return {
-        dialogFormThumbnailsGis: false,
-        form: {
-          bussinessTheme: '1',
-          typeCode: '2',
-          publicType: '依申请公开',
-          num: '网审190620001号',
-          documentNo_partOne: '文物保函',
-          documentNo_partTwo: '2019',
-          documentNo_partThree: '10',
-          fenfa_partOne: '11',
-          fenfa_partTwo: '13',
-          huanji: '',
-          ngdw: '文物保护与考古司 资源管理处',
-          ngr: '聂凯月',
-          tel: '56792082',
-          title:
-            '国家文物局关于湖北省2020年度全国重点文物保护单位文物保护项目（不含安防消防防雷）计划的批复',
-          zs: '湖北省文化和旅游厅',
-          cs: '本局办公室',
-          jnhq: '',
-          gz: '局章',
-          gzlx: '文物局发文',
-          qf: '宋新潮',
-          qfTime: '2019-10-16',
-          approvalResult: '1'
+export default {
+  components: {
+    ApplyFormItem,
+    MyDialog,
+    SelectDialog,
+    Thumbnails,
+    ThumbnailsGis
+  },
+  data() {
+    return {
+      dialogFormThumbnailsGis: false,
+      form: {
+        bussinessTheme: '1',
+        typeCode: '2',
+        publicType: '依申请公开',
+        num: '网审190620001号',
+        documentNo_partOne: '文物保函',
+        documentNo_partTwo: '2019',
+        documentNo_partThree: '10',
+        fenfa_partOne: '11',
+        fenfa_partTwo: '13',
+        huanji: '',
+        ngdw: '文物保护与考古司 资源管理处',
+        ngr: '聂凯月',
+        tel: '56792082',
+        title:
+          '国家文物局关于湖北省2020年度全国重点文物保护单位文物保护项目（不含安防消防防雷）计划的批复',
+        zs: '湖北省文化和旅游厅',
+        cs: '本局办公室',
+        jnhq: '',
+        gz: '局章',
+        gzlx: '文物局发文',
+        qf: '宋新潮',
+        qfTime: '2019-10-16',
+        approvalResult: '1'
+      },
+      tableData: [
+        {
+          handle: '文印室',
+          handleOpinion: '拟稿人校对办结',
+          handleTime: '2019-11-13 09:38:29'
         },
-        tableData: [
-          {
-            handle: '文印室',
-            handleOpinion: '拟稿人校对办结',
-            handleTime: '2019-11-13 09:38:29'
-          },
-          {
-            handle: '文书室',
-            handleOpinion: ' ',
-            handleTime: '2019-11-12 17:06:57'
-          },
-          {
-            handle: '文物保护与考古司司秘',
-            handleOpinion: '',
-            handleTime: '2019-11-12 16:46:12'
-          },
-          {
-            handle: '王彬',
-            handleOpinion: '',
-            handleTime: '2019-11-12 16:30:40'
-          },
-          {
-            handle: '聂凯月',
-            handleOpinion: '',
-            handleTime: '2019-11-11 14:06:15'
-          },
-          {
-            handle: '卞建龙',
-            handleOpinion: '',
-            handleTime: '2019-11-10 12:12:09'
-          },
-          {
-            handle: '王彬',
-            handleOpinion: '',
-            handleTime: '2019-11-07 12:04:42'
-          },
-          {
-            handle: '文物保护与考古司司秘',
-            handleOpinion: '',
-            handleTime: '2019-11-07 12:03:11'
-          },
-          {
-            handle: '秘书处',
-            handleOpinion: '',
-            handleTime: '2019-11-07 09:52:27'
-          },
-          {
-            handle: '宋新潮',
-            handleOpinion: '同意，新潮10.17',
-            handleTime: '2019-11-05 14:25:35'
-          },
-          {
-            handle: '文书室',
-            handleOpinion: '',
-            handleTime: '2019-10-16 17:29:50'
-          },
-          {
-            handle: '张建华',
-            handleOpinion: '报请新潮同志批示。',
-            handleTime: '2019-10-16 15:46:50'
-          },
-          {
-            handle: '吴刚',
-            handleOpinion: '请建华同志示。',
-            handleTime: '2019-10-16 10:01:19'
-          },
-          {
-            handle: '文书室',
-            handleOpinion: '',
-            handleTime: '2019-10-16 09:52:43'
-          },
-          {
-            handle: '闫亚林',
-            handleOpinion: '请办公室核报。',
-            handleTime: '2019-10-15 11:35:37'
-          },
-          {
-            handle: '王彬',
-            handleOpinion: '请司领导阅示。',
-            handleTime: '2019-10-14 21:52:35'
-          },
-          {
-            handle: '聂凯月',
-            handleOpinion: '请王彬同志阅示',
-            handleTime: '2019-09-27 16:26:05'
-          }
-        ],
-        type: 'card', // list
-        options: [
-          {
-            value: '1',
-            label: '涉建项目'
-          },
-          {
-            value: '2',
-            label: '函'
-          },
-          {
-            value: '选项3',
-            label: '蚵仔煎'
-          },
-          {
-            value: '选项4',
-            label: '龙须面'
-          },
-          {
-            value: '选项5',
-            label: '北京烤鸭'
-          }
-        ],
-        pageTabsData1: {
-          tabs: [
-            {title: '单位地图', num: ''},
-            {title: '批复文件', num: ''}
-          ]
+        {
+          handle: '文书室',
+          handleOpinion: ' ',
+          handleTime: '2019-11-12 17:06:57'
         },
-        sendDialogVisible: false, // 发送--备选人弹窗
-        sendDialogHeight: 600 // 发送弹窗高度
-
-      }
-    },
-    mounted() {
-    },
-    methods: {
-      testClick() {
-        this.dialogFormThumbnailsGis = true
-      },
-      handleSelect(key) {
-        this.selectMenuItem = key
-      },
-      language() {
-
-      },
-      showSendDialog(){
-        this.sendDialogVisible = true
-      }
-    },
-    computed: {
-      // 弹出框
-      dialogHeight: function () {
-        return this.$store.getters.screenHeight > 600
-          ? 600
-          : this.$store.getters.screenHeight
+        {
+          handle: '文物保护与考古司司秘',
+          handleOpinion: '',
+          handleTime: '2019-11-12 16:46:12'
+        },
+        {
+          handle: '王彬',
+          handleOpinion: '',
+          handleTime: '2019-11-12 16:30:40'
+        },
+        {
+          handle: '聂凯月',
+          handleOpinion: '',
+          handleTime: '2019-11-11 14:06:15'
+        },
+        {
+          handle: '卞建龙',
+          handleOpinion: '',
+          handleTime: '2019-11-10 12:12:09'
+        },
+        {
+          handle: '王彬',
+          handleOpinion: '',
+          handleTime: '2019-11-07 12:04:42'
+        },
+        {
+          handle: '文物保护与考古司司秘',
+          handleOpinion: '',
+          handleTime: '2019-11-07 12:03:11'
+        },
+        {
+          handle: '秘书处',
+          handleOpinion: '',
+          handleTime: '2019-11-07 09:52:27'
+        },
+        {
+          handle: '宋新潮',
+          handleOpinion: '同意，新潮10.17',
+          handleTime: '2019-11-05 14:25:35'
+        },
+        {
+          handle: '文书室',
+          handleOpinion: '',
+          handleTime: '2019-10-16 17:29:50'
+        },
+        {
+          handle: '张建华',
+          handleOpinion: '报请新潮同志批示。',
+          handleTime: '2019-10-16 15:46:50'
+        },
+        {
+          handle: '吴刚',
+          handleOpinion: '请建华同志示。',
+          handleTime: '2019-10-16 10:01:19'
+        },
+        {
+          handle: '文书室',
+          handleOpinion: '',
+          handleTime: '2019-10-16 09:52:43'
+        },
+        {
+          handle: '闫亚林',
+          handleOpinion: '请办公室核报。',
+          handleTime: '2019-10-15 11:35:37'
+        },
+        {
+          handle: '王彬',
+          handleOpinion: '请司领导阅示。',
+          handleTime: '2019-10-14 21:52:35'
+        },
+        {
+          handle: '聂凯月',
+          handleOpinion: '请王彬同志阅示',
+          handleTime: '2019-09-27 16:26:05'
+        }
+      ],
+      type: 'card', // list
+      options: [
+        {
+          value: '1',
+          label: '涉建项目'
+        },
+        {
+          value: '2',
+          label: '函'
+        },
+        {
+          value: '选项3',
+          label: '蚵仔煎'
+        },
+        {
+          value: '选项4',
+          label: '龙须面'
+        },
+        {
+          value: '选项5',
+          label: '北京烤鸭'
+        }
+      ],
+      pageTabsData1: {
+        tabs: [
+          { title: '单位地图', num: '' },
+          { title: '批复文件', num: '' }
+        ]
       }
     }
+  },
+  mounted() {},
+  methods: {
+    testClick() {
+      this.dialogFormThumbnailsGis = true
+    },
+    handleSelect(key) {
+      this.selectMenuItem = key
+    }
+  },
+  computed: {
+    // 弹出框
+    dialogHeight: function() {
+      return this.$store.getters.screenHeight > 600
+        ? 600
+        : this.$store.getters.screenHeight
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .approvelInfo {
-    .el-container {
-      .title {
-        position: relative;
-
-        .titleLine {
-          position: absolute;
-          left: 50%;
-          bottom: -5px;
-          transform: translate(-50%, 0);
-          background-color: $--color-primary;
-          width: 97px;
-          height: 3px;
+.approvelInfo {
+  .el-container {
+    .title {
+      position: relative;
+      .titleLine {
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        transform: translate(-50%, 0);
+        background-color: $--color-primary;
+        width: 70px;
+        height: 3px;
+      }
+    }
+    text-align: center;
+    border: 1px solid #ccc;
+    /deep/.el-main {
+      padding: 0px 10px;
+      .redLabel .el-form-item__label {
+        color: red !important;
+      }
+      th {
+        background-color: $--color-plain-hover;
+        height: 30px;
+        color: gray;
+      }
+      .labelZero {
+        .el-form-item__content {
+          margin-left: 0px !important;
         }
       }
-
-      text-align: center;
-      border: 1px solid #ccc;
-
-      /deep/ .el-main {
-        padding: 0px 10px;
-
-        .redLabel .el-form-item__label {
-          color: red !important;
-        }
-
-        th {
-          background-color: $--color-plain-hover;
-          height: 30px;
-          color: gray;
-        }
-
-        .labelZero {
-          .el-form-item__content {
-            margin-left: 0px !important;
-          }
-        }
-
-        .inpuWidthBox {
-          width: 100%;
-        }
-
-        .inpuWidth {
-          width: calc(100% - 40px) !important;
-        }
-
-        h4 {
+      .inpuWidthBox {
+        width: 100%;
+      }
+      .inpuWidth {
+        width: calc(100% - 40px) !important;
+      }
+      h4 {
+        margin: 10px;
+      }
+      // .scroll_main {
+      //   height: 900px;
+      // }
+      .el-divider {
+        background-color: red;
+        margin: 0;
+        margin-bottom: 18px;
+      }
+    }
+    .el-aside {
+      h4 {
+        margin: 10px;
+      }
+      padding: 0 10px;
+      .asideCard {
+        border: 1px solid #ccc;
+        h5 {
           margin: 10px;
         }
 
-        // .scroll_main {
-        //   height: 900px;
-        // }
-        .el-divider {
-          background-color: red;
-          margin: 0;
-          margin-bottom: 18px;
-
-          &.main_line {
-            background-color: $--color-primary;
-            height: 2px;
-            margin-bottom: 10px;
-          }
-        }
-      }
-
-      .el-aside {
-        h4 {
-          margin: 10px;
-        }
-
-        padding: 0 10px;
-
-        .asideCard {
-          border: 1px solid #ccc;
-
-          h5 {
-            margin: 10px;
-          }
-
-          .smallCard {
-            height: 200px;
-            margin: 8px;
-
-            .scroll_aside {
-              height: 204px;
-              box-sizing: border-box;
-
-              .liItem {
-                margin-top: 8px;
-              }
+        .smallCard {
+          height: 200px;
+          margin: 8px;
+          .scroll_aside {
+            height: 204px;
+            box-sizing: border-box;
+            .liItem {
+              margin-top: 8px;
             }
           }
         }
       }
     }
   }
+}
 </style>

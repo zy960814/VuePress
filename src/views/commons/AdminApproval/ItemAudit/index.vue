@@ -24,7 +24,7 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <el-divider class="border_black"></el-divider>
+          <el-divider></el-divider>
           <el-row :gutter="20">
             <el-col :span="8">
               <el-form-item label="流水号" prop="ngdw" class>
@@ -49,7 +49,7 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <el-divider class="border_black"></el-divider>
+          <el-divider></el-divider>
           <el-row :gutter="20">
             <el-col :span="8">
               <el-form-item label="拟稿单位" prop="ngdw" class="redStar">
@@ -74,14 +74,13 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <el-divider></el-divider>
           <el-row>
             <el-col :span="24">
               <el-form-item label="备注" prop="otherIntroduction">
                 <el-input
                   type="textarea"
                   :rows="2"
-                  placeholder="备注不超过2000个汉字"
+                  placeholder="描述不超过2000个汉字"
                   v-model="form.otherIntroduction"
                   disabled
                 ></el-input>
@@ -104,31 +103,6 @@
           </el-row>
         </el-form>
       </el-card>
-
-      <!-- 审批意见 -->
-      <el-card style="margin-top: 20px" class="box-card" shadow="never">
-        <el-form :model="{}" label-position="left" label-width="60px" :show-message="false">
-          <el-col :span="12">
-            <el-form-item label="发送给：" prop="remark" class="redStar">
-              <div style="display: flex; justify-content: space-between">
-                <el-input v-model="form.name" style="flex: 1"></el-input>
-                <el-button type="primary" @click="showSendDialog" style="margin-left: 10px">选择</el-button>
-              </div>
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item style="margin-bottom: 9px">
-              <common-language @language="language" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item label="办理意见" prop="remark" class="redStar">
-              <el-input type="textarea" :rows="4" v-model="form.remark" placeholder="请输入内容"></el-input>
-            </el-form-item>
-          </el-col>
-        </el-form>
-      </el-card>
-
       <!-- 办理意见 -->
       <h4 class="title_h4">
         办理意见列表
@@ -143,55 +117,15 @@
         </el-table>
       </el-card>
     </div>
-    <!-- 选择--发送备选人弹框 -->
-    <my-dialog
-      width="1000px"
-      class="boxCard_dialog"
-      :height="sendDialogHeight + 'px'"
-      center
-      :visible.sync="sendDialogVisible"
-      :append-to-body="true"
-    >
-      <select-dialog
-        :pageTabsData="sendPageTabsData"
-        title="选择发送人员"
-        @handle-select="handleSelect"
-        :height="sendDialogHeight + 'px'"
-        ref="selectDialog"
-      >
-        <template #body_1>
-          <el-scrollbar :style="{height: (sendDialogHeight - 170) + 'px'}">
-            <SendDialog></SendDialog>
-          </el-scrollbar>
-        </template>
-        <template #body_2>
-          <el-scrollbar :style="{height: (sendDialogHeight - 170) + 'px'}">
-            <SendDialog></SendDialog>
-          </el-scrollbar>
-        </template>
-      </select-dialog>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="sendDialogVisible = false">确定</el-button>
-        <el-button @click="sendDialogVisible = false">取消</el-button>
-      </span>
-    </my-dialog>
   </apply-form-item>
 </template>
 
 <script>
 import ApplyFormItem from '@/components/commons/ApplyForm/ApplyFormItem'
-import CommonLanguage from '@/components/commons/CommonLanguage'
-import SelectDialog from '@/components/commons/SelectDialog'
-import SendDialog from '@/components/business/ApplyForDialog/SendDialog'
-import MyDialog from '@/components/commons/MyDialog'
 
 export default {
   components: {
-    ApplyFormItem,
-    CommonLanguage,
-    SelectDialog,
-    SendDialog,
-    MyDialog
+    ApplyFormItem
   },
   data() {
     return {
@@ -345,25 +279,11 @@ export default {
           value: '选项5',
           label: '北京烤鸭'
         }
-      ],
-      sendPageTabsData: { tabs: [{ title: '常用' }, { title: '全部' }] },
-      sendDialogVisible: false, // 发送备选人弹窗
-      sendDialogHeight: 600 // 发送弹窗高度
+      ]
     }
   },
   mounted() {},
-  methods: {
-    // 常用语下拉框
-    language(value) {
-      this.form.remark += value
-    },
-    showSendDialog() {
-      this.sendDialogVisible = true
-    },
-    handleSelect(tabIndex) {
-      this.handleIndex = tabIndex
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -372,10 +292,6 @@ export default {
   .el-divider {
     margin: 0;
     margin-bottom: 18px;
-
-    &.border_black {
-      background-color: #000;
-    }
   }
   .title_h4 {
     text-align: center;

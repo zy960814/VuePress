@@ -5,7 +5,7 @@
         <span >技术人员总数：{{allData.Technicist.tableData.length}}</span>
       </div>
 		</div>
-        <el-table :data="allData.Technicist.tableData" style="width: 100%">
+				<el-table :data="allData.Technicist.tableData" style="width: 100%">
 					<el-table-column label="序号" width="50" prop="date" ></el-table-column>
 					<el-table-column label="人员姓名" min-width="100" prop="name" ></el-table-column>
 					<el-table-column label="出生年份" min-width="150" prop="dateBirth" ></el-table-column>

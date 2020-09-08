@@ -183,7 +183,7 @@ export default {
           address: "",
           applTime: "2020-05-22 11:40",
           corpName: "张丽",
-          applyCode: '56014-3-b',
+          applyCode: '65004',
           economicType: "有限责任公司",
           instName: "全国重点文物保护单位原址保护措施申请",
           inst_id: "c3a3dee0-21f9-47ec-8a65-bc4191e75a37",

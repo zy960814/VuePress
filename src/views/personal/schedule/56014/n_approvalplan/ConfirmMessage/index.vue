@@ -151,7 +151,7 @@ export default {
         { designPerson: '设计人/单位' },
         { qualityType: '资质类型' },
         { level: '级别' },
-        { sendOrganization: '申报主体' },
+        { sendOrganization: '报送单位' },
         { rangeScale: '建设范围及规模' },
         { otherIntroduction: '其他说明' }
       ],

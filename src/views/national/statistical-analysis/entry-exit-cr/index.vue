@@ -1,7 +1,5 @@
 <template>
   <div id="printDOMElement" class="entry-exit-cr">
-    <!-- 打印、导出标题 -->
-    <div class="hxl__title" style="display: none">{{ pageTabsData.tabs[tabIndex - 1] ? pageTabsData.tabs[tabIndex - 1].title : '' }}</div>
     <el-card class="header_Table" shadow="never">
       <div slot="header">文物进出境统计
         <div class="clear-float header_buttonTable">

@@ -21,7 +21,7 @@
           <!-- 中间内容 -->
           <div class="scrollBox" :style="{height: contentHeight}">
             <basic-information
-              applyType="majorMatter"
+              applyType="56008"
               class="hxl_item"
               ref="basicInformation"
               id="basicInformation"

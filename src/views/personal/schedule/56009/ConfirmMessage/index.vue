@@ -123,7 +123,7 @@ export default {
         { projectName: '项目名称' },
         { funds: '经费', '': '' },
         { formationCompany: '编制单位', '': '' },
-        { sendOrganization: '申报主体', '': '' },
+        { sendOrganization: '报送单位', '': '' },
         { otherIntroduction: '其他说明' }
       ],
       //文本概况

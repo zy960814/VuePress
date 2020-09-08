@@ -20,7 +20,7 @@
       :height="contentHeight"
       style="width: 100%">
       <el-table-column min-width="55"  label="序号" type="index" :index="indexMethod" ></el-table-column>
-      <el-table-column  min-width="150" prop="sendInst" label="申报主体"></el-table-column>
+      <el-table-column  min-width="150" prop="sendInst" label="报送单位"></el-table-column>
       <el-table-column  min-width="150" prop="openShape" label="公开类型"></el-table-column>
       <el-table-column  min-width="150" prop="acceptDepartment" label="受理部门"></el-table-column>
       <el-table-column  min-width="150" prop="sponsor" label="拟稿人"></el-table-column>

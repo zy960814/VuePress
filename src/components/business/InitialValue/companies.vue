@@ -143,14 +143,12 @@ export default {
       ],
       tableData1: [],
       columns: [
-        { label: '总序号', data: 'organizationName', 'min-width': '100' },
-        { label: '注册地', data: 'organizationName', 'min-width': '100' },
+        { label: '注册地', data: 'organizationName', 'min-width': '140' },
         { label: '主题类型', data: 'legalRepresentative', 'min-width': '100' },
-        { label: '分序号', data: 'organizationName', 'min-width': '100' },
-        { label: '名称', data: 'districtCode', 'min-width': '100' },
-        { label: '法定代表人', data: 'address', 'min-width': '100' },
-        { label: '许可证号、批准文号或统一社会信用代码', data: 'zipCode', 'min-width': '220' },
-        { label: '资质状态', data: 'telNo', 'min-width': '100' },
+        { label: '名称', data: 'districtCode', 'min-width': '150' },
+        { label: '法定代表人', data: 'address', 'min-width': '230' },
+        { label: '许可证号、批准文号或统一社会信用代码', data: 'zipCode', 'min-width': '150' },
+        { label: '资质状态', data: 'telNo', 'min-width': '150' },
       ],
       tableData: [
         {

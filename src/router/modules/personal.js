@@ -77,20 +77,7 @@ const personalRouter = {
       path: '/personal/schedule/56010',
       component: () =>
         import('@/views/personal/schedule/56010'),
-    },
-    {
-      path: '/personal/schedule/56014/56014_a',
-      component: () =>
-        import('@/views/personal/schedule/56014/56014_a'),
     }, {
-      path: '/personal/schedule/56014/56014_b',
-      component: () =>
-        import('@/views/personal/schedule/56014/56014_b'),
-    },
-
-
-
-    {
       path: '/personal/schedule/56014/rescue',
       component: () =>
         import('@/views/personal/schedule/56014/rescue'),
@@ -114,11 +101,7 @@ const personalRouter = {
       path: '/personal/schedule/56014/n_reportCRB',
       component: () =>
         import('@/views/personal/schedule/56014/n_reportCRB'),
-    },
-
-
-
-    {
+    }, {
       path: '/personal/schedule/56009',
       component: () =>
         import('@/views/personal/schedule/56009'),

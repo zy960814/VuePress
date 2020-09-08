@@ -2,7 +2,7 @@
   <div class="content">
     <el-card shadow="never" class="header_Table">
       <div slot="header">
-        审批事项查询
+        查询检索
         <!-- <div class="clear-float header_buttonTable">
           <page-tabs :pageTabsData="pageTabsData" @handle-select="handleSelect"></page-tabs>
         </div> -->

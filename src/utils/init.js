@@ -49,7 +49,7 @@ function routeGuard() {
   router.beforeEach(async (to, from, next) => {
     NProgress.start();
 
-    const temp = 1;
+    const temp = 0;
 
     if (temp) {
       next();

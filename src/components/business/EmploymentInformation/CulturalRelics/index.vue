@@ -27,10 +27,6 @@ export default {
     status:{
       type:Number,
     },
-    showInfo:{
-      type:Boolean,
-      default:false
-    }
   },
   watch:{
     status(curVal){

@@ -2,7 +2,7 @@
 <!-- 省局文物局审核中 -->
   <div class="content">
     <el-card class="box-card" shadow="never">
-      <div slot="header">资质单位从业信息审核</div>
+      <div slot="header">资质单位从业信息</div>
       <apply-form :data="titleData" @tab-click="itemClick">
         <template #titleInsertL_one>
           <span style="font-size:14px;">当前状态：{{SwStatus()}}</span>
@@ -17,7 +17,7 @@
         <template #body>
           <div class="scrollBox" :style="{height: contentHeight}">
             <div class="tempBox">
-              <apply-form-item data="单位基本信息" class="hxl_item " >
+              <apply-form-item data="单位机构信息" class="hxl_item " >
                 <Agency-information :sxg='sxg' :status='status' :allData="allData" class="center" ref="agencyInformation"/>
               </apply-form-item>
             </div>
@@ -27,7 +27,7 @@
             <apply-form-item data="单位技术人员构成" class="hxl_item">
               <technicist :sxg='sxg' :status='status' :allData="allData" class="center"></technicist>
             </apply-form-item>
-            <apply-form-item data="文物保护工程业绩" class="hxl_item">
+            <apply-form-item data="独立承担且已完成的文物保护工程业绩" class="hxl_item">
               <historic-reservation :sxg='sxg' class="historic-reservation center" :status='status' :addProject='addProject' :allData="allData"></historic-reservation>
             </apply-form-item>
             <apply-form-item data="获奖情况" class="hxl_item">
@@ -95,14 +95,14 @@ export default {
       dialogFormVisible:false,
       dialogFormVisibleType:false,
       // 切换按钮标题
-      titleData: ['单位基本信息', '单位资质信息', '单位技术人员构成','文物保护工程业绩','获奖情况','省文物局意见'],
+      titleData: ['单位机构信息', '单位资质信息', '单位技术人员构成','独立承担且已完成的文物保护工程业绩','获奖情况','省文物局意见'],
       applyFormData: {},
       status: 6,
       disabled:true,
       Project:[],
       saveOrsubmit:'',
       allData:{
-        AgencyInformation:{ // 单位基本信息 数据
+        AgencyInformation:{ // 单位机构信息 数据
           form: {
             address: "",
             areaCode: "",
@@ -123,7 +123,7 @@ export default {
             remark:'',
           },
         },
-        HistoricReservation:{//文物保护工程业绩
+        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
           tableData:[],
           remark:'',
         },
@@ -175,7 +175,7 @@ export default {
     findWorkOrder() {
 
     },
-    // 单位基本信息标记状态改变: 1已核, 2存疑
+    // 单位机构信息标记状态改变: 1已核, 2存疑
     organStatusChange(value) {
       console.log(value,'value')
     },
@@ -224,7 +224,7 @@ export default {
       this.status=status;
       this.selectMenuItem='1' //根据查询的数据判断是代办还是已办
       this.allDaa={
-        AgencyInformation:{ // 单位基本信息 数据
+        AgencyInformation:{ // 单位机构信息 数据
          form:{
             instName:'1111',
             creditCode:'111111',
@@ -242,7 +242,7 @@ export default {
             itemName2:'1111'
          }
         },
-        HistoricReservation:{//文物保护工程业绩
+        HistoricReservation:{//独立承担且已完成的文物保护工程业绩
           tableData:[
                     {
                       approvalDepart: "国家文物局",

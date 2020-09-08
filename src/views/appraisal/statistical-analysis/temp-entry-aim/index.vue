@@ -1,7 +1,7 @@
 <template>
   <div id="printDOMElement" class="content">
     <el-card shadow="never">
-      <div slot="header" class="hxl__title">文物临时进境目的情况</div>
+      <div slot="header" class="hxl__title">审核管理处进出境文物情况统计</div>
       <temp-entry-aim/>
     </el-card>
   </div>

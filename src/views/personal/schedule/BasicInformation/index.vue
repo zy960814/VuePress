@@ -9,44 +9,43 @@
     >
       <nationalsecurity-dialog
         ref="nationalsecurityDialog"
+        style="margin-top:10px;"
         :noTabs="true"
-        :nationalSecurityNameStr="'全国重点文物保护单位'"
+        :nationalSecurityNameStr="'全国重点文物保护单位名称'"
         v-if="applyType=='56004'"
         :heightSelectCut="174"
       />
       <nationalsecurity-dialog
         ref="nationalsecurityDialog"
-        :nationalSecurityNameStr="'全国重点文物保护单位'"
+        style="margin-top:18px;"
+        :nationalSecurityNameStr="'全国重点文物保护单位名称'"
         v-if="applyType=='56005'"
         applyType="56005"
       />
       <nationalsecurity-dialog
         ref="nationalsecurityDialog"
+        style="margin-top:18px;"
         :noTabs="true"
-        :nationalSecurityNameStr="'全国重点文物保护单位'"
+        :nationalSecurityNameStr="'全国重点文物保护单位名称'"
         v-if="applyType=='56012'"
       />
       <nationalsecurity-ten ref="nationalsecurityDialog" v-if="applyType=='56010'" />
       <nationalsecurity-dialog
         ref="nationalsecurityDialog"
+        style="margin-top:18px;"
         :noTabs="true"
-        :nationalSecurityNameStr="'全国重点文物保护单位'"
-        v-if="applyType=='n_approvalplan'||applyType=='56014_a'|| applyType==='p_approvalplan'|| applyType==='financing'|| applyType==='p_protectPlan'||applyType==='p_protectPlan'|| applyType==='rescue'||applyType==='n_reportCRB'||applyType==='p_reportCRB'||applyType==='n_protectPlan'"
+        :nationalSecurityNameStr="'全国重点文物保护单位名称'"
+        v-if="applyType=='n_approvalplan'|| applyType==='p_approvalplan'|| applyType==='financing'|| applyType==='rescue'||applyType==='n_reportCRB'||applyType==='p_reportCRB'||applyType==='n_protectPlan'"
         :heightSelectCut="174"
       />
       <el-row
         v-if="applyType==='56004'|| applyType==='56005'|| applyType==='56010'|| applyType==='56012'
-        || applyType==='n_approvalplan'||applyType=='56014_a'|| applyType==='p_approvalplan'
-        || applyType==='financing'|| applyType==='p_protectPlan'|| applyType==='rescue'||applyType==='n_reportCRB'
+        || applyType==='n_approvalplan'|| applyType==='p_approvalplan'
+        || applyType==='financing'|| applyType==='rescue'||applyType==='n_reportCRB'
         ||applyType==='p_reportCRB'||applyType==='n_protectPlan'"
       >
         <el-col :span="11">
-          <el-form-item
-            label="是否是革命文物"
-            prop="isRevolutionRelic"
-            class="redStar"
-            :class="{zeroMargin:zeroFlag}"
-          >
+          <el-form-item label="是否是革命文物" prop="isRevolutionRelic" class="redStar">
             <el-radio v-model="form.isRevolutionRelic" label="1">是</el-radio>
             <el-radio v-model="form.isRevolutionRelic" label="2">否</el-radio>
           </el-form-item>
@@ -54,43 +53,24 @@
       </el-row>
       <el-row
         v-if="applyType=='56004'|| applyType==='56005'|| applyType==='56012'
-        || applyType==='n_approvalplan'||applyType=='56014_a'|| applyType==='p_approvalplan'|| applyType==='financing'
+        || applyType==='n_approvalplan'|| applyType==='p_approvalplan'|| applyType==='financing'
         || applyType==='rescue'||applyType==='n_reportCRB'||applyType==='p_reportCRB'||applyType==='n_protectPlan'"
       >
         <el-col :span="11">
-          <el-form-item
-            label="是否是世界遗产"
-            prop="worldHeritage"
-            class="redStar"
-            style="margin-bottom:0px;"
-          >
+          <el-form-item label="是否是世界遗产" prop="worldHeritage" class="redStar">
             <el-radio v-model="form.worldHeritage" label="1">是</el-radio>
             <el-radio v-model="form.worldHeritage" label="2">否</el-radio>
           </el-form-item>
         </el-col>
       </el-row>
-      <template v-if="showApplyTitle">
-        <el-row class="spilt">
-          <el-col :span="11">
-            <el-form-item label="申报类型" prop="applyType_56014_part1" class="redStar">
-              <el-input v-model="form.applyType_56014_part1" placeholder disabled></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="11" :offset="2" v-if="applyType==='56014_a'||applyType==='56014_b'">
-            <el-form-item label prop="applyType_56014_part2" class="redStar">
-              <el-select v-model="form.applyType_56014_part2" clearable placeholder>
-                <el-option
-                  v-for="item in applyTypeArr_56014"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.label"
-                ></el-option>
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </template>
-      <el-divider v-if="showDivider"></el-divider>
+      <el-row class="spilt">
+        <el-col :span="24">
+          <el-form-item label="申请事项名称" prop="applyItemName" class="redStar">
+            <el-input v-model="form.applyItemName" placeholder="建议包含便于查询检索的关键信息"></el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-divider></el-divider>
       <el-row>
         <el-col :span="24">
           <el-form-item label="申请文件标题" prop="applyDocumentTitle" class="redStar">
@@ -135,6 +115,7 @@
           </el-row>
         </el-col>
       </el-row>
+
       <el-row>
         <el-col :span="24">
           <el-form-item ref="fileUpload" label="申请文件" prop="applyDocument" class="redStar">
@@ -152,14 +133,14 @@
               :on-error="fileUploadError"
             >
               <el-button size="small" type="primary">点击上传</el-button>
-              <span slot="tip" class="el-upload__tip" style="font-size:12px">支持扩展名：doc / docx / pdf</span>
+              <span slot="tip" class="el-upload__tip">支持扩展名：doc / docx / pdf</span>
             </el-upload>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="11">
-          <el-form-item label="报送单位" prop="applyPerson" class="redStar">
+          <el-form-item label="申请人" prop="applyPerson" class="redStar">
             <el-input v-model="form.applyPerson" disabled></el-input>
           </el-form-item>
         </el-col>
@@ -213,18 +194,12 @@ export default {
   },
   data() {
     return {
-      zeroFlag: false,
-      // 是否展示基本信息里的分割线
-      showDivider: true,
-      // 是否展示申报类型行
-      showApplyTitle: false,
       fileUploadUrl: `${API_PREFIX.PERSONAL}/bizTempfile/uploadBexhibitionFile`,
       // 携运人信息
       form: {
         isRevolutionRelic: '2',
         worldHeritage: '2',
-        applyType_56014_part1: '',
-        applyType_56014_part2: '',
+        applyItemName: '',
         applyPerson: '岱宗夫',
         handlePerson: '谢云流',
         telNo: '',
@@ -279,47 +254,13 @@ export default {
           label: '新疆'
         }
       ],
-      // 56014_a申报类型下拉框
-      applyTypeArr_56014_a: [
-        {
-          value: '0',
-          label: '项目计划（立项）已获批（国家文物局审批事项）'
-        },
-        {
-          value: '1',
-          label: '项目计划（立项）已获批（省级文物局审批事项）'
-        },
-        {
-          value: '2',
-          label: '不申请中央财政补贴资金'
-        },
-        {
-          value: '3',
-          label: '抢救性工程'
-        }
-      ],
-      // 56014_b申报类型下拉框
-      applyTypeArr_56014_b: [
-        {
-          value: '0',
-          label: '国家文物局审批事项'
-        },
-        {
-          value: '1',
-          label: '省级文物局审批事项'
-        }
-      ],
       // 表单校验规则的选用方案
       ruleKey: 'default',
       // 三套表单校验规则
       rules: {
         default: {},
         save: {
-          applyType_56014_part1: [
-            // { required: true, message: ' ', trigger: 'change' },
-            { max: 200, message: '长度最大 200 个字符', trigger: 'change' }
-          ],
-          applyType_56014_part2: [
+          applyItemName: [
             // { required: true, message: ' ', trigger: 'change' },
             { max: 200, message: '长度最大 200 个字符', trigger: 'change' }
           ],
@@ -375,11 +316,7 @@ export default {
               trigger: 'change'
             }
           ],
-          applyType_56014_part1: [
-            { required: true, message: ' ', trigger: 'change' },
-            { max: 100, message: '长度最大 100 个字符', trigger: 'change' }
-          ],
-          applyType_56014_part2: [
+          applyItemName: [
             { required: true, message: ' ', trigger: 'change' },
             { max: 100, message: '长度最大 100 个字符', trigger: 'change' }
           ],
@@ -424,54 +361,6 @@ export default {
   },
   mounted() {
     console.log(this.form)
-  },
-  watch: {
-    // 申报类型输入框文字
-    applyType: {
-      handler(newValue, oldValue) {
-        console.log(newValue, oldValue)
-        if (newValue === '56006') {
-          this.showDivider = false
-        } else if (newValue === '56013') {
-          this.showDivider = false
-        } else if (newValue === '56009') {
-          this.showDivider = false
-        } else if (newValue === '56010') {
-          this.zeroFlag = true
-        } else if (newValue === 'majorMatter') {
-          this.showApplyTitle = true
-          this.form.applyType_56014_part1 = '重大事项：考古工作方案或规划'
-        } else if (newValue === '56014_a') {
-          this.showApplyTitle = true
-          this.form.applyType_56014_part1 = '全国重点文物保护单位修缮项目审批'
-        } else if (newValue === '56014_b') {
-          this.showApplyTitle = true
-          this.form.applyType_56014_part1 =
-            '全国重点文物保护单位安全防护工程项目审批'
-        } else if (newValue === 'n_protectPlan') {
-          this.showApplyTitle = true
-          this.form.applyType_56014_part1 = '国家文物局审批事项'
-        } else if (newValue === 'p_protectPlan') {
-          this.showApplyTitle = true
-          this.form.applyType_56014_part1 = '省级文物局审批事项'
-        } else {
-          this.showApplyTitle = false
-          this.form.applyType_56014_part1 = ''
-        }
-      },
-      immediate: true
-    }
-  },
-  computed: {
-    applyTypeArr_56014() {
-      let arr = []
-      if (this.applyType === '56014_a') {
-        arr = this.applyTypeArr_56014_a
-      } else if (this.applyType === '56014_a') {
-        arr = this.applyTypeArr_56014_b
-      }
-      return arr
-    }
   },
   methods: {
     // 点击文件列表中的文件, 下载相关文件
@@ -586,9 +475,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.zeroMargin {
-  margin-bottom: 0;
-}
 .labelZero {
   /deep/.el-form-item__content {
     margin-left: 0px !important;

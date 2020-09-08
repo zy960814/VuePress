@@ -138,10 +138,6 @@ export default {
       if (this.$refs.projectInformation.$refs.basicMessage.$refs.designDialog) {
         Promise.all([
           this.$refs.basicInformation.getFormData(type),
-          this.$refs.basicInformation.$refs.nationalsecurityDialog.getFormData(
-            type
-          ),
-
           this.$refs.projectInformation.$refs.basicMessage.getFormData(type),
           this.$refs.projectInformation.$refs.basicMessage.$refs.designDialog.getFormData(
             type
@@ -178,12 +174,8 @@ export default {
       } else {
         Promise.all([
           this.$refs.basicInformation.getFormData(type),
-          this.$refs.basicInformation.$refs.nationalsecurityDialog.getFormData(
-            type
-          ),
-
           this.$refs.projectInformation.$refs.basicMessage.getFormData(type),
-          this.$refs.projectInformation.$refs.basicMessage.$refs.chargepersonDialog.getFormData(
+          this.$refs.projectInformation.$refs.basicMessage.$refs.personalOrganizationDialog.getFormData(
             type
           ),
           this.$refs.applyMaterial.getFormData(type)

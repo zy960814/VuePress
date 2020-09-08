@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <el-collapse v-model="activeNames" @change='activeNamesChange'>
-      <el-collapse-item title="单位基本信息" name="1">
+      <el-collapse-item title="单位机构信息" name="1">
         <template slot="title">
-          <span class="collapseSty">单位基本信息</span>
+          <span class="collapseSty">单位机构信息</span>
         </template>
         <Agency-information :status='status' :allData="allData" class="center" :redactFlag='false'></Agency-information>
       </el-collapse-item>
@@ -19,9 +19,9 @@
         </template>
         <technicist :status='status' :allData="allData" class="center" :redactFlag='false'></technicist>
       </el-collapse-item>
-      <el-collapse-item title="文物保护工程业绩" name="4">
+      <el-collapse-item title="独立承担且已完成的文物保护工程业绩" name="4">
         <template slot="title">
-          <span class="collapseSty">文物保护工程业绩</span>
+          <span class="collapseSty">独立承担且已完成的文物保护工程业绩</span>
         </template>
         <historic-reservation class="historic-reservation center" :status='status' :addProject='addProject' :allData="allData" :redactFlag='false'></historic-reservation>
       </el-collapse-item>

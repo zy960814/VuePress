@@ -47,15 +47,12 @@
     methods: {
       // 单证下载
       downloadDoc(row) {
-        /**01 文物出境
+        /**
          * 09 文物复出境展览证明
+         * 02 复仿制品
          */
-        if ('01' == row.croCertificateCode) {
-          let num = "1-"+this.tableData.length+"-1-"+this.tableData.length;
-          window.open(`${API_PREFIX.APPRAISAL}/certificate/printCroPermitPDF/${this.$store.state._20.tempEntryItemId}/`+num);
-        } else if('03' == row.croCertificateCode) {
-          let num = "1-"+this.tableData.length+"-1-"+this.tableData.length;
-          window.open(`${API_PREFIX.APPRAISAL}/certificate/printCroForbidPDF/${this.$store.state._20.tempEntryItemId}/`+num);
+        if ('02' == row.croCertificateCode) {
+          window.open(`${API_PREFIX.APPRAISAL}/certificate/printImitationPDF/${this.$store.state._20.tempEntryItemId}`);
         } else {
           window.open(`${API_PREFIX.APPRAISAL}/certificate/printTempEntryCroPDF/${this.$store.state._20.tempEntryItemId}`);
         }
@@ -65,7 +62,7 @@
         if ('09' == row.croCertificateCode) {
             window.open(`${API_PREFIX.APPRAISAL}/certificate/downloadTempEntryCroOFD/${this.$store.state._20.tempEntryItemId}`);
         } else {
-            window.open(`${API_PREFIX.APPRAISAL}/certificate/downloadCroPermitOFD/${this.$store.state._20.tempEntryItemId}`);
+            window.open(`${API_PREFIX.APPRAISAL}/certificate/downloadImitationOFD/${this.$store.state._20.tempEntryItemId}`);
         }
 
       }

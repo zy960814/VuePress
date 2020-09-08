@@ -79,10 +79,6 @@ export default {
     allData:{
       type:Object,
     },
-    showInfo:{
-      type:Boolean,
-      default:false
-    }
   },
   watch:{
     status(curVal){

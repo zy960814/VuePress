@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-form
-			ref="form"
+			ref="form1"
 			:rules="rules"
 			:model="form"
 			label-position="left"
@@ -115,7 +115,7 @@ export default {
     // 表单校验
 		validataForm() { // 表单校验
 			let flag=false;
-			this.$refs["form"].validate(valid => {
+			this.$refs["form1"].validate(valid => {
 				if (valid) {
 				
 					flag=true;

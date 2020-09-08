@@ -24,9 +24,13 @@
     <table-opt-menu @item-click="itemClick" style="margin: 5px 0">
       <el-button
         type="primary"
+        size="mini" 
+        @click="dialogFormVisibleParting = true">分办
+      </el-button>
+      <el-button
+        type="primary"
         size="mini"
         class="mr-10"
-        :disabled="form.qualTypeCode1 === '1'"
         @click="dialogFormVisiblePress = true">催办
       </el-button>
       <el-select
@@ -152,11 +156,11 @@
       :height='dialogHeight + "px"'
       center :visible.sync="dialogFormVisibleParting"
       :append-to-body="true">
-      <select-dialog
-        :pageTabsData="pageTabsData2"
-        title="选择分办人员"
+      <select-dialog 
+        :pageTabsData="pageTabsData2" 
+        title="选择分办人员" 
         @handle-select="handleSelect"
-        :height='dialogHeight + "px"'
+        :height='dialogHeight + "px"' 
         ref='selectDialog'>
         <template #body_1>
           <el-scrollbar :style="{height: (dialogHeight - 170) + 'px'}">
@@ -239,7 +243,7 @@ export default {
           address: "",
           applTime: "2020-05-22 11:40",
           corpName: "张丽",
-          applyCode: '56004',
+          applyCode: '65004',
           economicType: "有限责任公司",
           instName: "全国重点文物保护单位原址保护措施申请",
           inst_id: "c3a3dee0-21f9-47ec-8a65-bc4191e75a37",
@@ -259,9 +263,7 @@ export default {
       // 资格类型
       qualificationLevelOption: [
         { qualRangeName: "个人待办", qualRangeCode: "1" },
-        { qualRangeName: "全处待办", qualRangeCode: "2" },
-        { qualRangeName: "全司待办", qualRangeCode: "3" },
-        { qualRangeName: "全局待办", qualRangeCode: "4" },
+        { qualRangeName: "全局待办", qualRangeCode: "2" },
       ],
       checkColInit: [
         {
@@ -278,41 +280,40 @@ export default {
           label: '序号',
           prop: 'num',
           width: 100, //列宽
-          sort: 'descending', //排序方式
+          sort: 'descending', //排序方式(鸡肋，因为记录了也不能在一开始初始化的时候多个列都排序，因为一次只能按照一列的规则来排序)
           sortable: false, //是否显示排序图标
           insertFlagArr: { alertbutton: false }, //表头自定义组件
           collapse: false //展开收起
         },
         {
-          label: '省份',
+          label: '流水号',
           prop: 'instName',
           width: 150, //列宽
           sort: 'descending', //排序方式
           sortable: 'custom', //是否显示排序图标
-          display: true, //是否显示此列
           insertFlagArr: { alertbutton: false }, //表头自定义组件
           collapse: false
         },
         {
-          label: '审批事项类型',
+          label: '类型',
           prop: 'applTime',
           width: 150,
-          sort: '',
+          sort: 'descending',
           sortable: 'custom',
           insertFlagArr: { alertbutton: false },
           collapse: false
         },
         {
-          label: '申请文号',
+          label: '审批事项类型',
           prop: 'corpName',
           width: 200,
           sort: '',
           sortable: false,
-          insertFlagArr: { alertbutton: false },
+          insertFlagArr: { alertbutton: true },
           collapse: false
         },
         {
-          label: '文博单位名称',
+          label: '办理状态',
           prop: 'proNum',
           width: 180,
           sort: '',
@@ -321,7 +322,61 @@ export default {
           collapse: false
         },
         {
-          label: '文物类型',
+          label: '申请文件标题',
+          prop: 'qualificationLevel',
+          width: 150,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '发文标题',
+          prop: 'perNum',
+          width: 200,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '剩余时间(工作日)',
+          prop: 'proNum',
+          width: 180,
+          sort: '',
+          sortable: 'custom',
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '停留时间(工作日)',
+          prop: 'qualificationLevel',
+          width: 150,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '省份',
+          prop: 'perNum',
+          width: 200,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '申请单位名称',
+          prop: 'proNum',
+          width: 180,
+          sort: '',
+          sortable: 'custom',
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '申请单位类型',
           prop: 'qualificationLevel',
           width: 150,
           sort: '',
@@ -339,52 +394,7 @@ export default {
           collapse: false
         },
         {
-          label: '停留时间',
-          prop: 'proNum',
-          width: 180,
-          sort: '',
-          sortable: 'custom',
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '剩余时间',
-          prop: 'qualificationLevel',
-          width: 150,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '办理状态',
-          prop: 'perNum',
-          width: 200,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
           label: '上一办理人',
-          prop: 'proNum',
-          width: 180,
-          sort: '',
-          sortable: 'custom',
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '批复文件标题',
-          prop: 'qualificationLevel',
-          width: 150,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '批复文号',
           prop: 'perNum',
           width: 200,
           sort: '',
@@ -392,15 +402,6 @@ export default {
           insertFlagArr: { alertbutton: false },
           collapse: false
         },
-        {
-          label: '流水号',
-          prop: 'perNum',
-          width: 200,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        }
       ],
       dropColInit: [
         {
@@ -423,7 +424,7 @@ export default {
           collapse: false //展开收起
         },
         {
-          label: '省份',
+          label: '流水号',
           prop: 'instName',
           width: 150, //列宽
           sort: 'descending', //排序方式
@@ -442,7 +443,7 @@ export default {
           collapse: false
         },
         {
-          label: '申请文号',
+          label: '办理状态',
           prop: 'corpName',
           width: 200,
           sort: '',
@@ -451,7 +452,7 @@ export default {
           collapse: false
         },
         {
-          label: '文博单位名称',
+          label: '申请文件标题',
           prop: 'proNum',
           width: 180,
           sort: '',
@@ -460,45 +461,63 @@ export default {
           collapse: false
         },
         {
-          label: '文物类型',
+          label: '发文标题',
           prop: 'qualificationLevel',
           width: 150,
           sort: '',
           sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '剩余时间(工作日)',
+          prop: 'perNum',
+          width: 200,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '停留时间(工作日)',
+          prop: 'proNum',
+          width: 180,
+          sort: '',
+          sortable: 'custom',
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '省份',
+          prop: 'qualificationLevel',
+          width: 150,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '申请单位名称',
+          prop: 'perNum',
+          width: 200,
+          sort: '',
+          sortable: false,
+          insertFlagArr: { alertbutton: false },
+          collapse: false
+        },
+        {
+          label: '申请单位类型',
+          prop: 'proNum',
+          width: 180,
+          sort: '',
+          sortable: 'custom',
           insertFlagArr: { alertbutton: false },
           collapse: false
         },
         {
           label: '申请时间',
-          prop: 'perNum',
-          width: 200,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '停留时间',
-          prop: 'proNum',
-          width: 180,
-          sort: '',
-          sortable: 'custom',
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '剩余时间',
           prop: 'qualificationLevel',
           width: 150,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '办理状态',
-          prop: 'perNum',
-          width: 200,
           sort: '',
           sortable: false,
           insertFlagArr: { alertbutton: false },
@@ -506,24 +525,6 @@ export default {
         },
         {
           label: '上一办理人',
-          prop: 'proNum',
-          width: 180,
-          sort: '',
-          sortable: 'custom',
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '批复文件标题',
-          prop: 'qualificationLevel',
-          width: 150,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        },
-        {
-          label: '批复文号',
           prop: 'perNum',
           width: 200,
           sort: '',
@@ -531,15 +532,6 @@ export default {
           insertFlagArr: { alertbutton: false },
           collapse: false
         },
-        {
-          label: '流水号',
-          prop: 'perNum',
-          width: 200,
-          sort: '',
-          sortable: false,
-          insertFlagArr: { alertbutton: false },
-          collapse: false
-        }
       ],
       // 确认弹框
       dialogKey: 0,
